@@ -1,0 +1,109 @@
+<div class="pop_overlay">
+  <div class="pop_wrap p_loc_resource_regist">
+    <div class="pop_tit">
+      <h1>지역 중점관리자원 등록</h1>
+      <button type="button" class="btn_pop_close" data-btn_type="closePop"></button>
+    </div>
+    <div class="pop_body pop_blur">
+      <div class="pop_cont">
+        <div class="flex_wrap f_sb">
+          <div class="cmmn_resource">
+            <div class="tit_h3">
+              <h3>공통자원목록 선택</h3>
+            </div>
+            <div class="search search_s">
+              <ul class="search_lst">                
+                <li class="full"><label for="div_lg_cd">자원분류</label>
+                  <div class="ipt_group">
+                    <select name="sort1" title="대분류" id="div_lg_cd">
+                      <option value="자원 대분류">자원 대분류</option>
+                    </select>
+                    <select name="sort2" title="중분류" id="div_md_cd">
+                      <option value="자원 중분류">자원 중분류</option>
+                    </select>
+                    <select name="sort3" title="자원 소분류" id="div_sm_cd">
+                      <option value="자원 소분류">자원 소분류</option>
+                    </select>
+                  </div>
+                </li>
+                <li>
+                  <label for="dsst_rsc_nm">자원명</label>
+                  <input type="text" id="dsst_rsc_nm"/>
+                </li>
+                <li class="btn_wrap">
+                  <button type="button" id="search_btn" class="btn btn_blue">검색</button>
+                </li>
+              </ul>
+            </div>
+            <div class="tbl_wrap">
+              <table id="grid_cmmn_resource" class="jq-grid"></table>
+              <div id="jqGridPager"></div>
+            </div>
+          </div>
+          <div class="ipt_wrap flex-grow">
+            <div class="tit_h3">
+              <h3>세부사항</h3>
+            </div>
+            <ul class="ipt_lst">
+              <li><label>자원명&sol;규격</label><input type="text"></li>
+              <li><label>단위</label><input type="text"></li>
+              <li><label>자원구분</label><select name="" id=""><option value=""></option></select></li>
+              <li><label>자원등급</label><select name="" id=""><option value=""></option></select></li>
+              <li><label for="">신규 등록량</label><input type="number"></li>
+              <li><label for="">적정 보유량</label><input type="number"></li>
+              <li><label for="">1일사용량</label><input type="number"></li>
+              <li><label for="">안전재고(B)</label><input type="number"></li>
+              <li><label for="">전략재고(A)</label><input type="number" class="font_orange">
+                <div class="range_wrap">
+                  <label for="range1">가중치<span class="font_orange">1.5</span></label>
+                  <input type="range" id="range1" name="" step="0.1" min="0" max="3" value="1.5">
+                </div>
+              </li>
+              <li><label for="">임의재고(C)</label><input type="number" class="font_navy">
+                <div class="range_wrap">
+                  <label for="range2">가중치<span class="font_navy">0.5</span></label>
+                  <input type="range" id="range2" name="" step="0.1" min="0" max="1" value="0.5">
+                </div>
+              </li>
+            </ul>            
+            <div class="info_lst">
+              <ul>
+                <li>사용량에 대한 근거가 없기에, 자원별 보유량을 기준으로 장비는 30일 사용분, 자재는 7일 사용분으로 가정하여 1일 사용량을 산출</li>
+                <li>B등급 안전재고는 1일 평균 사용량<em>제품공급 리드타임 ( 7일 적용 )</em></li>
+                <li>A등급 전략재고는 안전재고( B등급 )<em>기본 가중치 1.5 적용 / 위험 순위가 높은(중점재난유형) 재난유형의 B등급 자원</em></li>
+                <li>C등급 임의재고는 안전재고( B등급 )
+                <em>설정치 ( &lt; 1 이하이며, 0.5를 적용 ) : 0.5는 가정치로  0.1 수준으로 적용할 수도 있음</em></li>
+              </ul>
+            </div>            
+          </div>
+        </div>
+        <div class="btn_wrap alignC">
+          <button type="button" class="btn btn_blue" onclick="btnAlert()">등록</button>
+          <button type="button" class="btn btn_gray" onclick="">닫기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+var cmmn_resource =[
+  { 't1': '수중펌프', 't2': '5000kg', 't3': '장비' },
+  { 't1': '수중펌프', 't2': '5000kg', 't3': '장비' },
+  { 't1': '수중펌프', 't2': '5000kg', 't3': '장비' },
+]
+$('#grid_cmmn_resource').jqGrid({
+  data: cmmn_resource,
+    datatype: "local",
+    colNames: ['자원명','규격','자원 구분'],
+    colModel: [
+      { name: 't1'},
+      { name: 't2'},
+      { name: 't3' }
+    ],
+    height: 'auto',  
+    viewrecords: true,
+    rowTotal: -1,
+    autowidth: true,
+    pager: "#jqGridPager"
+});
+</script>

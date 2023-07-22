@@ -1,0 +1,67 @@
+<!-- Header -->
+<header>
+  <div class="util">
+    <div class="wrap">
+      <b>사용자</b><span>님이 로그인 하셨습니다.</span>
+      <ul class="util_list">
+        <li><button type="button" onclick="btnInfo()">내정보</button></li>
+        <li><button type="button">로그아웃</button></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap flex_wrap f_sb">
+    <h1 class="logo">
+      <a href="main.html">
+        <img src="../images/img_h1_title.png" alt="재난관리자원 운영&middot;관리 시스템">
+      </a>
+    </h1>
+    <ul class="gnb flex_wrap" role="navigation">
+      <li>
+        <a class="on" href="disman01.html">재난관리자원 관리</a>
+        <ul class="sub">
+          <!-- 행안부 사용자 -->
+          <li><a href="disman01.html" class="on">중점관리자원 보유 현황</a></li>
+          <li><a href="disman02.html">중점관리자원 응원 현황</a></li>
+          <!-- 행안부 사용자__e -->
+          <!-- 지자체 사용자 -->
+          <li><a href="disman01.html">지역 중점관리자원</a></li>
+          <li><a href="disman04.html">지역 중점관리자원 응원 요청</a></li>
+          <!-- 지자체 사용자__e -->
+        </ul>
+      </li>
+      <li>
+        <a href="danger01.html">재난위험성 평가조회</a>
+        <ul class="sub">
+          <li><a href="danger01.html">지역별 재난 위험도</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="admin01.html">시스템 관리</a>
+        <ul class="sub">
+          <li><a href="admin01.html">사용자 관리</a></li>
+          <li><a href="admin02.html">공통코드관리</a></li>
+          <li><a href="admin03.html">자원관리</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</header>
+<!-- // Header -->
+
+<!-- 내정보 -->
+<!-- @@include('p_cmmn02_1_1.html') -->
+<!--// 내정보 -->
+
+<!-- 내정보 수정 -->
+<!-- @@include('p_cmmn02_1_2.html') -->
+<!--// 내정보 수정 -->
+
+<script>
+  function btnInfo() {
+    $('.p_cmmn02_1_1').parent('.pop_overlay').toggle();
+  }
+
+  function btnEdit() {
+    $('.p_cmmn02_1_2').parent('.pop_overlay').show();
+  }
+</script>

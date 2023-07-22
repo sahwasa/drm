@@ -1,0 +1,149 @@
+<div class="pop_overlay">
+  <div class="pop_wrap p_loc_resource_grouping">
+    <div class="pop_tit">
+      <h1>재난관리자원 그룹화</h1>
+      <button type="button" class="btn_pop_close" data-btn_type="closePop"></button>
+    </div>
+    <div class="pop_body pop_blur">
+      <div class="pop_cont">
+        <div class="flex_wrap f_sb">
+          <div class="ungrouped">
+            <div class="tit_h3">
+              <h3>미분류</h3>
+            </div>
+            <div class="search search_s">
+              <ul class="search_lst">
+                <li><label for="div_lg_cd">자원분류</label>
+                <div class="ipt_group">
+                  <select name="sort1" title="대분류" id="div_lg_cd">
+                    <option value="자원 대분류">자원 대분류</option>
+                    <option value="">장비</option>
+                    <option value="">자재</option>
+                  </select>
+                  <input type="text" list="resource_lst">
+                  <datalist id="resource_lst">
+                    <option value="자원1"></option>
+                    <option value="자원2"></option>
+                    <option value="자원3"></option>
+                  </datalist>
+                </div>
+                </li>
+                <li class="btn_wrap">
+                  <button type="button" id="search_btn" class="btn btn_blue">검색</button>
+                </li>
+              </ul>
+              <!-- 주석부분이 화면설계 UI -->
+              <!-- <ul class="search_lst">                
+                <li class="full"><label for="div_lg_cd">자원분류</label>
+                  <div class="ipt_group">
+                    <select name="sort1" title="대분류" id="div_lg_cd">
+                      <option value="자원 대분류">자원 대분류</option>
+                    </select>
+                    <select name="sort2" title="중분류" id="div_md_cd">
+                      <option value="자원 중분류">자원 중분류</option>
+                    </select>
+                    <select name="sort3" title="자원 소분류" id="div_sm_cd">
+                      <option value="자원 소분류">자원 소분류</option>
+                    </select>
+                  </div>
+                </li>
+                <li>
+                  <label for="dsst_rsc_nm">자원명</label>
+                  <input type="text" id="dsst_rsc_nm"/>
+                </li>
+                <li class="btn_wrap">
+                  <button type="button" id="search_btn" class="btn btn_blue">검색</button>
+                </li>
+              </ul> -->
+            </div>
+            <div class="tbl_wrap">
+              <table id="grid_resource" class="jq-grid"></table>
+              <div id="pager2"></div>
+            </div>
+          </div>
+          
+          <div class="btn_area">
+            <button type="button" id="" class="btn_group_add">추가 &gt; </button>
+            <button type="button" id="" class="btn_group_del">&lt; 제거</button>
+          </div>
+          
+          <div class="grouped">
+            <div class="tit_h3">
+              <h3>그룹</h3>
+            </div>
+            <div class="search search_s">
+              <ul class="search_lst">                
+                <li><label for="dsst_cl">재난분류</label>
+                  <div class="ipt_group">
+                    <select name="sort1" title="재난 대분류" id="dsst_cl">
+                    <option value="재난 대분류">재난 대분류</option>
+                  </select>
+                  <select name="sort2" title="재난 중분류" id="dsst_ty">
+                    <option value="재난 중분류">재난 중분류</option>
+                  </select>
+                  </div>
+                </li>
+                <li class="btn_wrap">
+                  <button type="button" id="search_btn" class="btn btn_blue">검색</button>
+                </li>
+              </ul>
+            </div>
+            <div class="tbl_wrap">
+              <table id="grid_dsst" class="jq-grid"></table>
+              <div id="pager1"></div>
+            </div>
+          </div>
+        </div>
+        <div class="btn_wrap alignC">
+          <button type="button" class="btn btn_blue" onclick="btnAlert()">적용</button>
+          <button type="button" class="btn btn_gray" onclick="">닫기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+var dsst =[
+    { 't1': '수중펌프', 't2': '5000kg', 't3': '장비' },
+    { 't1': '수중펌프', 't2': '5000kg', 't3': '장비' },
+    { 't1': '수중펌프', 't2': '5000kg', 't3': '장비' },
+  ],
+  resource=[
+    { 't1': '수중펌프', 't2': '5000kg', 't3': '장비' },
+    { 't1': '수중펌프', 't2': '5000kg', 't3': '장비' },
+    { 't1': '수중펌프', 't2': '5000kg', 't3': '장비' },
+  ]
+
+$('#grid_dsst').jqGrid({
+  data: dsst,
+    datatype: "local",
+    colNames: ['자원명','규격','자원 구분'],
+    colModel: [
+      { name: 't1'},
+      { name: 't2'},
+      { name: 't3' }
+    ],
+    height: 'auto',  
+    viewrecords: true,
+    rowTotal: -1,
+    autowidth: true,
+    pager: "#pager1",
+    multiselect:true
+});
+$('#grid_resource').jqGrid({
+  data: resource,
+    datatype: "local",
+    colNames: ['자원명','규격','자원 구분'],
+    colModel: [
+      { name: 't1'},
+      { name: 't2'},
+      { name: 't3' }
+    ],
+    height: 'auto',  
+    viewrecords: true,
+    rowTotal: -1,
+    autowidth: true,
+    pager: "#pager2",
+    multiselect:true
+});
+</script>

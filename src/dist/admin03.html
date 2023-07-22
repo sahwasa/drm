@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>재난관리자원 운영&middot;관리 시스템</title>
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="../plugins/axicon/axicon.min.css" />
+  <link rel="stylesheet" href="../plugins/jquery-ui/themes/base/jquery-ui.min.css" />
+  <link rel="stylesheet" href="../plugins/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.css">
+  <link rel="stylesheet" href="../plugins/jqueryui-timepicker-addon/dist/jquery.datetimepicker.css">
+  <link rel="stylesheet" href="../plugins/jqGrid/css/ui.jqgrid.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/sub.css">
+  <link rel="stylesheet" href="../css/pop.css">
+
+  <script src="../plugins/jquery/dist/jquery.min.js"></script>
+  <script src="../plugins/jquery-ui/jquery-ui.min.js"></script>
+  <script src="../plugins/jquery-ui/ui/i18n/datepicker-ko.js"></script>
+  <script src="../plugins/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.js"></script>
+  <script src="../plugins/jqueryui-timepicker-addon/dist/jquery.datetimepicker.full.min.js"></script>
+  <script src="../js/Chart.bundle.js"></script>
+  <script src="../plugins/jqGrid/js/jquery.jqGrid.min.js"></script>
+  <script src="../plugins/jqGrid/js/i18n/grid.locale-kr.js"></script>
+  <script src="../js/file_attach.js"></script>
+  <script src="../js/ui_common.js"></script>
+</head>
+
+<body>
+  <!-- Header -->
+<header>
+  <div class="util">
+    <div class="wrap">
+      <b>사용자</b><span>님이 로그인 하셨습니다.</span>
+      <ul class="util_list">
+        <li><button type="button" onclick="btnInfo()">내정보</button></li>
+        <li><button type="button">로그아웃</button></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap flex_wrap f_sb">
+    <h1 class="logo">
+      <a href="main.html">
+        <img src="../images/img_h1_title.png" alt="재난관리자원 운영&middot;관리 시스템">
+      </a>
+    </h1>
+    <ul class="gnb flex_wrap" role="navigation">
+      <li>
+        <a class="on" href="disman01.html">재난관리자원 관리</a>
+        <ul class="sub">
+          <!-- 행안부 사용자 -->
+          <li><a href="disman01.html" class="on">중점관리자원 보유 현황</a></li>
+          <li><a href="disman02.html">중점관리자원 응원 현황</a></li>
+          <!-- 행안부 사용자__e -->
+          <!-- 지자체 사용자 -->
+          <li><a href="disman01.html">지역 중점관리자원</a></li>
+          <li><a href="disman04.html">지역 중점관리자원 응원 요청</a></li>
+          <!-- 지자체 사용자__e -->
+        </ul>
+      </li>
+      <li>
+        <a href="danger01.html">재난위험성 평가조회</a>
+        <ul class="sub">
+          <li><a href="danger01.html">지역별 재난 위험도</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="admin01.html">시스템 관리</a>
+        <ul class="sub">
+          <li><a href="admin01.html">사용자 관리</a></li>
+          <li><a href="admin02.html">공통코드관리</a></li>
+          <li><a href="admin03.html">자원관리</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</header>
+<!-- // Header -->
+
+<!-- 내정보 -->
+
+<!--// 내정보 -->
+
+<!-- 내정보 수정 -->
+
+<!--// 내정보 수정 -->
+
+<script>
+  function btnInfo() {
+    $('.p_cmmn02_1_1').parent('.pop_overlay').toggle();
+  }
+
+  function btnEdit() {
+    $('.p_cmmn02_1_2').parent('.pop_overlay').show();
+  }
+</script>
+  <!-- Contents -->
+  <div class="contents wrap">
+    <div class="notice_area">
+      <h2 class="tit_h2">자원 관리</h2>
+      <div>
+        <div class="section">
+          <div class="article">
+            <div class="search">
+              <ul class="flex_wrap">
+                <li style="flex:0 1 53%;padding-bottom:6px;">
+                  <ul class="flex_wrap f_sb" style="flex-wrap:wrap;">
+                    <li>
+                      <label for="sort">분&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;류</label>
+                      <select id="sort" title="분류">
+                        <option value="선택">선택</option>
+                        <option value="자재">자재</option>
+                        <option value="장비">장비</option>
+                      </select>
+                    </li>
+                    <li>
+                      <label for="name">세부 품명</label>
+                      <input type="text" id="name" title="세부 품명">
+                    </li>
+                  </ul>
+                </li>
+                <li style="flex:0 1 53%;padding-bottom:6px;">
+                  <ul class="flex_wrap f_sb" style="flex-wrap:wrap;">
+                    <li>
+                      <label for="type">유&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;형</label>
+                      <select id="type" title="유형">
+                        <option value="선택">선택</option>
+                        <option value="호우">호우</option>
+                        <option value="화재">화재</option>
+                      </select>
+                    </li>
+                    <li>
+                      <label for="standard">규&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;격</label>
+                      <input type="text" id="standard" title="규격">
+                    </li>
+                  </ul>
+                </li>
+                <li style="flex:0 1 100%;padding-bottom:6px;">
+                  <ul class="flex_wrap f_sb">
+                    <li>
+                      <label for="typesort">자원 분류</label>
+                      <select id="typesort" title="자원 분류">
+                        <option value="대분류">대분류</option>
+                      </select>
+                      <select id="typesort" title="자원 분류">
+                        <option value="중분류">중분류</option>
+                      </select>
+                      <select id="typesort" title="자원 분류">
+                        <option value="소분류">소분류</option>
+                      </select>
+                    </li>
+                    <li>
+                      <button type="button" class="btn btn_gray">검색</button>
+                    </li>
+                  </ul>
+
+                </li>
+              </ul>
+              <div class="btn_wrap">
+              </div>
+            </div>
+          </div>
+          <div class="tbl_top">
+            <div class="tit_h3 flex_wrap f_sb">
+              <h3>그룹코드</h3>
+              <button type="button" class="font_b btn_s btn_gray" onclick="btnRegistration()">자원등록</button>
+            </div>
+          </div>
+          <div class="article">
+            <div class="tbl_wrap">
+              <table id="jqgrid" class="jq-grid"></table>
+            </div>
+          </div>
+        </div>
+        <div class="paginate">
+          <a href="#" class="first" title="처음">〈〈</a>
+          <a href="#" class="pre" title="이전">〈</a>
+          <span>
+            <a href="#" class="on">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">6</a>
+            <a href="#">7</a>
+            <a href="#">8</a>
+            <a href="#">9</a>
+            <a href="#">10</a>
+          </span>
+          <a href="#" class="next" title="다음">〉</a>
+          <a href="#" class="last" title="마지막">〉〉</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!-- // Contents -->
+  <!-- Footer -->
+<div class="footer">
+  <copy>Copyright &copy; 2023. All rights reserved.</copy>
+</div>
+<!-- // Footer -->
+
+  <!-- 재난관리자원 응원처리 -->
+  <div class="pop_overlay">
+  <div class="pop_wrap p_admin03_1">
+    <div class="pop_tit">
+      <h1>자원 등록</h1>
+      <button type="button" class="btn_pop_close" closePop></button>
+    </div>
+    <div class="pop_body pop_blur">
+      <div class="pop_cont">
+        <div>
+          <div class="tit_h3 flex_wrap f_sb" style="vertical-align:top;margin-bottom:10px;">
+            <h3>자원 등록</h3>
+          </div>
+          <table class="tbl_row">
+            <colgroup>
+              <col style="width:30%;">
+              <col style="width:70%;">
+            </colgroup>
+            <caption>자원 등록</caption>
+            <tr>
+              <th><label for="sort" class="required">자원 분류</label></th>
+              <td>
+                <span class="flex_wrap">
+                  <select name="sort">
+                    <option value="대분류">대분류</option>
+                  </select>
+                  <select name="sort2">
+                    <option value="중분류">중분류</option>
+                  </select>
+                  <select name="sort3">
+                    <option value="소분류">소분류</option>
+                  </select>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th><label for="name" class="required">세부품명</label></th>
+              <td>
+                <input type="text" id="name">
+              </td>
+            </tr>
+            <tr>
+              <th><label for="code" class="required">세부품목코드</label></th>
+              <td>
+                <input type="text" id="code">
+              </td>
+            </tr>
+            <tr>
+              <th><label for="type" class="required">재난유형</label></th>
+              <td>
+                <span class="flex_wrap f_sb" style="flex-wrap:wrap;">
+                  <label for="fire">
+                    <input type="checkbox">
+                    화재
+                  </label>
+                  <label for="fire">
+                    <input type="checkbox">
+                    지진
+                  </label>
+                  <label for="fire">
+                    <input type="checkbox">
+                    지진
+                  </label>
+                  <label for="fire">
+                    <input type="checkbox">
+                    지진
+                  </label>
+                  <label for="fire">
+                    <input type="checkbox">
+                    지진
+                  </label>
+                  <label for="fire">
+                    <input type="checkbox">
+                    지진
+                  </label>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th><label for="standard" class="required">규격</label></th>
+              <td>
+                <input type="text" id="standard">
+              </td>
+            </tr>
+            <tr>
+              <th><label for="unit">단위</label></th>
+              <td>
+                <span class="flex_wrap">
+                  <select name="sort1">
+                    <option value="선택">선택</option>
+                  </select>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th><label for="type" class="required">중점 자원 여부</label></th>
+              <td>
+                <span class="flex_wrap">
+                  <select name="sort1">
+                    <option value="선택">선택</option>
+                  </select>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="btn_wrap alignC">
+          <button type="button" class="btn btn_blue" onclick="btnAlert()">등록</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <!--// 재난관리자원 응원처리 -->
+
+  <script>
+    var mydata = [
+      { 't1': '0000000140-3220056-220830-0000730170', 't2': '자재', 't3': '46182003', 't4': '가스마스크', 't5': ' 개', 't6': '23472794', 't7': '전시용방독면', 't8': '-', 't9': '화재', 't10': '-' }
+    ]
+    $("#jqgrid").jqGrid({
+      data: mydata,
+      datatype: "local",
+      colModel: [
+        { label: '자원ID', name: 't1' },
+        { label: '분류', name: 't2' },
+        { label: '물품분류번호', name: 't3' },
+        { label: '자원명', name: 't4' },
+        { label: '규격그룹', name: 't5' },
+        { label: '물품식별번호', name: 't6' },
+        { label: '세부품명', name: 't7' },
+        { label: '단위', name: 't8' },
+        { label: '재난 유형', name: 't9' },
+        { label: '비고', name: 't10' }
+      ],
+      height: 'auto',
+      multiselect: true,
+      viewrecords: true,
+      rowTotal: -1,
+      rowNum: 10,
+      autowidth: true
+    });
+
+    function tblBtn(cellValue, options, rowdata, action) {
+      var html, txt = "";
+      switch (cellValue) {
+        case "edit":
+          txt = "edit";
+          break;
+        case "del":
+          txt = "del";
+          break;
+        case "dtl":
+          txt = "dtl";
+          break;
+        case "down":
+          txt = "down";
+          break;
+        case "file":
+          txt = "file";
+          break;
+        default:
+          txt = "none";
+      }
+      html = '<button type="button" class="axi btn_' + txt + '"></button>';
+      return html;
+    }
+    jqgridInit();
+  </script>
+
+  <script>
+    function btnRegistration() {
+      $('.p_admin03_1').parent('.pop_overlay').show();
+    }
+  </script>
+</body>
+
+</html>

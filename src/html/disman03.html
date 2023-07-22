@@ -1,0 +1,165 @@
+@@include('inc/top.html')
+
+<body>
+  @@include('inc/header.html')
+  <!-- Contents -->
+  <div class="contents wrap">
+    <div class="notice_area">
+      <h2 class="tit_h2">이력조회</h2>
+      <div>
+        <div class="section">
+          <div class="article">
+            <div class="search">
+              <ul class="flex_wrap f_sb">
+                <li style="flex:0 1 54%;">
+                  <ul>
+                    <li style="flex:0 1 100%;padding-bottom:6px;">
+                      <label for="division">기관분류</label>
+                      <select name="division" title="division">
+                        <option value="시도">시도</option>
+                      </select>
+                      <select name="division" title="division">
+                        <option value="시군구">시군구</option>
+                      </select>
+                    </li>
+                    <li style="flex:0 1 100%;padding-bottom:6px;">
+                      <label for="division">재난분류</label>
+                      <select name="division" title="division">
+                        <option value="전체">전체</option>
+                        <option value="자연재난">자연재난</option>
+                        <option value="사회재난">사회재난</option>
+                      </select>
+                      <select name="division" title="division">
+                        <option value="전체">전체</option>
+                        <option value="호우">호우</option>
+                        <option value="지진">지진</option>
+                      </select>
+                    </li>
+                    <li>
+                      <label for="typesort">자원분류</label>
+                      <select id="typesort" title="자원 분류">
+                        <option value="대분류">대분류</option>
+                      </select>
+                      <select id="typesort" title="자원 분류">
+                        <option value="중분류">중분류</option>
+                      </select>
+                      <select id="typesort" title="자원 분류">
+                        <option value="소분류">소분류</option>
+                      </select>
+                    </li>
+                  </ul>
+                </li>
+                <li style="flex:0 1 30%; align-self:flex-end;">
+                  <ul>
+                    <li style="padding-bottom:6px;">
+                      <label for="name">기관명</label>
+                      <input type="text" id="name">
+                    </li>
+                    <li>
+                      <label for="name02">자원명</label>
+                      <input type="text" id="name02">
+                    </li>
+                  </ul>
+                </li>
+                <li style="align-self:flex-end;">
+                  <div class="btn_wrap">
+                    <button type="button" class="btn btn_blue">검색</button>
+                    <button type="button" class="btn btn_greenline">엑셀저장</button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="tbl_top tit_h3">
+            <h3>중점관리자원 상호이력 조회</h3>
+          </div>
+          <div class="article">
+            <div class="tbl_wrap">
+              <table id="jqgrid" class="jq-grid"></table>
+            </div>
+          </div>
+        </div>
+        <div class="paginate">
+          <a href="#" class="first" title="처음">〈〈</a>
+          <a href="#" class="pre" title="이전">〈</a>
+          <span>
+            <a href="#" class="on">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">6</a>
+            <a href="#">7</a>
+            <a href="#">8</a>
+            <a href="#">9</a>
+            <a href="#">10</a>
+          </span>
+          <a href="#" class="next" title="다음">〉</a>
+          <a href="#" class="last" title="마지막">〉〉</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- // Contents -->
+
+  @@include('inc/footer.html')
+
+  <script>
+    var mydata = [
+      { 't1': '응원요쳥', 't2': '22.07.12 12:33:59', 't3': '22.07.12 12:33:59', 't4': '-', 't5': '승인', 't6': '호우', 't7': '수중펌프', 't8': '서울특병시 영등포구', 't9': '10', 't10': '10', 't11': '대', 't12': '-' },
+      { 't1': '응원요쳥', 't2': '22.07.12 12:33:59', 't3': '22.07.12 12:33:59', 't4': '-', 't5': '승인', 't6': '호우', 't7': '수중펌프', 't8': '서울특병시 영등포구', 't9': '10', 't10': '10', 't11': '대', 't12': '-' },
+      { 't1': '응원요쳥', 't2': '22.07.12 12:33:59', 't3': '22.07.12 12:33:59', 't4': '-', 't5': '승인', 't6': '호우', 't7': '수중펌프', 't8': '서울특병시 영등포구', 't9': '10', 't10': '10', 't11': '대', 't12': '-' },
+      { 't1': '응원요쳥', 't2': '22.07.12 12:33:59', 't3': '22.07.12 12:33:59', 't4': '-', 't5': '승인', 't6': '호우', 't7': '수중펌프', 't8': '서울특병시 영등포구', 't9': '10', 't10': '10', 't11': '대', 't12': '-' },
+      { 't1': '응원요쳥', 't2': '22.07.12 12:33:59', 't3': '22.07.12 12:33:59', 't4': '-', 't5': '승인', 't6': '호우', 't7': '수중펌프', 't8': '서울특병시 영등포구', 't9': '10', 't10': '10', 't11': '대', 't12': '-' },
+      { 't1': '응원요쳥', 't2': '22.07.12 12:33:59', 't3': '22.07.12 12:33:59', 't4': '-', 't5': '승인', 't6': '호우', 't7': '수중펌프', 't8': '서울특병시 영등포구', 't9': '10', 't10': '10', 't11': '대', 't12': '-' },
+      { 't1': '응원요쳥', 't2': '22.07.12 12:33:59', 't3': '22.07.12 12:33:59', 't4': '-', 't5': '승인', 't6': '호우', 't7': '수중펌프', 't8': '서울특병시 영등포구', 't9': '10', 't10': '10', 't11': '대', 't12': '-' },
+      { 't1': '응원요쳥', 't2': '22.07.12 12:33:59', 't3': '22.07.12 12:33:59', 't4': '-', 't5': '승인', 't6': '호우', 't7': '수중펌프', 't8': '서울특병시 영등포구', 't9': '10', 't10': '10', 't11': '대', 't12': '-' },
+      { 't1': '응원요쳥', 't2': '22.07.12 12:33:59', 't3': '22.07.12 12:33:59', 't4': '-', 't5': '승인', 't6': '호우', 't7': '수중펌프', 't8': '서울특병시 영등포구', 't9': '10', 't10': '10', 't11': '대', 't12': '-' },
+      { 't1': '응원요쳥', 't2': '22.07.12 12:33:59', 't3': '22.07.12 12:33:59', 't4': '-', 't5': '승인', 't6': '호우', 't7': '수중펌프', 't8': '서울특병시 영등포구', 't9': '10', 't10': '10', 't11': '대', 't12': '-' },
+      { 't1': '응원요쳥', 't2': '22.07.12 12:33:59', 't3': '22.07.12 12:33:59', 't4': '-', 't5': '승인', 't6': '호우', 't7': '수중펌프', 't8': '서울특병시 영등포구', 't9': '10', 't10': '10', 't11': '대', 't12': '-' },
+      { 't1': '응원요쳥', 't2': '22.07.12 12:33:59', 't3': '22.07.12 12:33:59', 't4': '-', 't5': '승인', 't6': '호우', 't7': '수중펌프', 't8': '서울특병시 영등포구', 't9': '10', 't10': '10', 't11': '대', 't12': '-' },
+      { 't1': '응원요쳥', 't2': '22.07.12 12:33:59', 't3': '22.07.12 12:33:59', 't4': '-', 't5': '승인', 't6': '호우', 't7': '수중펌프', 't8': '서울특병시 영등포구', 't9': '10', 't10': '10', 't11': '대', 't12': '-' },
+    ]
+    $("#jqgrid").jqGrid({
+      data: mydata,
+      datatype: "local",
+      colModel: [
+        { label: '구분', name: 't1' },
+        { label: '응원 요청일시', name: 't2' },
+        { label: '지원 승인일시', name: 't3' },
+        { label: '지원 취소일시', name: 't4' },
+        { label: '승인취소', name: 't5', width: 100 },
+        { label: '재난유형', name: 't6', width: 100 },
+        { label: '자원명', name: 't7' },
+        { label: '기관/부서', name: 't8' },
+        { label: '요청수량', name: 't9', width: 100 },
+        { label: '지원수량', name: 't10', width: 100 },
+        { label: '단위', name: 't11', width: 100 },
+        { label: '비고', name: 't12' }
+      ],
+      height: 'auto',
+      rownumbers: true,
+      viewrecords: true,
+      rowTotal: -1,
+      rowNum: 10,
+      autowidth: true
+    });
+
+    function tblBtn2(cellValue, options, rowdata, action) {
+      var html, txt = "";
+      switch (cellValue) {
+        case "request":
+          txt = "응원요청";
+          break;
+        default:
+          txt = "none";
+      }
+      html = '<button type="button" class="btn_s btn_blueline btn_' + cellValue + '">' + txt + '</button>';
+      return html;
+    }
+
+    jqgridInit();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>재난관리자원 운영&middot;관리 시스템</title>
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="../plugins/axicon/axicon.min.css" />
+  <link rel="stylesheet" href="../plugins/jquery-ui/themes/base/jquery-ui.min.css" />
+  <link rel="stylesheet" href="../plugins/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.css">
+  <link rel="stylesheet" href="../plugins/jqueryui-timepicker-addon/dist/jquery.datetimepicker.css">
+  <link rel="stylesheet" href="../plugins/jqGrid/css/ui.jqgrid.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/sub.css">
+  <link rel="stylesheet" href="../css/pop.css">
+
+  <script src="../plugins/jquery/dist/jquery.min.js"></script>
+  <script src="../plugins/jquery-ui/jquery-ui.min.js"></script>
+  <script src="../plugins/jquery-ui/ui/i18n/datepicker-ko.js"></script>
+  <script src="../plugins/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.js"></script>
+  <script src="../plugins/jqueryui-timepicker-addon/dist/jquery.datetimepicker.full.min.js"></script>
+  <script src="../js/Chart.bundle.js"></script>
+  <script src="../plugins/jqGrid/js/jquery.jqGrid.min.js"></script>
+  <script src="../plugins/jqGrid/js/i18n/grid.locale-kr.js"></script>
+  <script src="../js/file_attach.js"></script>
+  <script src="../js/ui_common.js"></script>
+</head>
+
+<body>
+  <!-- Header -->
+<header>
+  <div class="util">
+    <div class="wrap">
+      <b>사용자</b><span>님이 로그인 하셨습니다.</span>
+      <ul class="util_list">
+        <li><button type="button" onclick="btnInfo()">내정보</button></li>
+        <li><button type="button">로그아웃</button></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap flex_wrap f_sb">
+    <h1 class="logo">
+      <a href="main.html">
+        <img src="../images/img_h1_title.png" alt="재난관리자원 운영&middot;관리 시스템">
+      </a>
+    </h1>
+    <ul class="gnb flex_wrap" role="navigation">
+      <li>
+        <a class="on" href="disman01.html">재난관리자원 관리</a>
+        <ul class="sub">
+          <!-- 행안부 사용자 -->
+          <li><a href="disman01.html" class="on">중점관리자원 보유 현황</a></li>
+          <li><a href="disman02.html">중점관리자원 응원 현황</a></li>
+          <!-- 행안부 사용자__e -->
+          <!-- 지자체 사용자 -->
+          <li><a href="disman01.html">지역 중점관리자원</a></li>
+          <li><a href="disman04.html">지역 중점관리자원 응원 요청</a></li>
+          <!-- 지자체 사용자__e -->
+        </ul>
+      </li>
+      <li>
+        <a href="danger01.html">재난위험성 평가조회</a>
+        <ul class="sub">
+          <li><a href="danger01.html">지역별 재난 위험도</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="admin01.html">시스템 관리</a>
+        <ul class="sub">
+          <li><a href="admin01.html">사용자 관리</a></li>
+          <li><a href="admin02.html">공통코드관리</a></li>
+          <li><a href="admin03.html">자원관리</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</header>
+<!-- // Header -->
+
+<!-- 내정보 -->
+
+<!--// 내정보 -->
+
+<!-- 내정보 수정 -->
+
+<!--// 내정보 수정 -->
+
+<script>
+  function btnInfo() {
+    $('.p_cmmn02_1_1').parent('.pop_overlay').toggle();
+  }
+
+  function btnEdit() {
+    $('.p_cmmn02_1_2').parent('.pop_overlay').show();
+  }
+</script>
+  <!-- Contents -->
+  <div class="contents wrap">
+    <div class="notice_area">
+      <h2 class="tit_h2">나의 중점 관리자원 <span>(서울특별시 종로구)</span></h2>
+      <div>
+        <div class="section">
+          <div class="article">
+            <div class="search">
+              <ul class="flex_wrap f_sb">
+                <li><ul>
+                    <li>
+                      <label for="">재난분류</label>
+                      <select name="" title="">
+                        <option value="전체">전체</option>
+                        <option value="자연재난">자연재난</option>
+                        <option value="사회재난">사회재난</option>
+                      </select>
+                      <select name="" title="">
+                        <option value="전체">전체</option>
+                        <option value="호우">호우</option>
+                        <option value="지진">지진</option>
+                      </select>
+                    </li>
+                    <li>
+                      <label for="typesort">자원분류</label>
+                      <select id="typesort" title="자원 분류">
+                        <option value="대분류">대분류</option>
+                      </select>
+                      <select id="typesort" title="자원 분류">
+                        <option value="중분류">중분류</option>
+                      </select>
+                      <select id="typesort" title="자원 분류">
+                        <option value="소분류">소분류</option>
+                      </select>
+                    </li>
+                </ul></li>
+                <li><ul>                    
+                    <li>
+                      <label for="name02">자원명</label>
+                      <input type="text" id="name02">
+                    </li>
+                </ul></li>
+                <li>
+                  <div class="btn_wrap">
+                    <button type="button" class="btn btn_blue">검색</button>
+                    <button type="button" class="btn btn_greenline">엑셀저장</button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="tbl_top tit_h3">
+            <h3>중점관리자원 목록</h3>
+            <div class="btn_wrap">
+              <button type="button" class="btn_s btn_gray" onclick="btnRegistration()">자원등록</button>
+              <button type="button" class="btn_s btn_gray" onclick="">자원 현행화</button>
+              <button type="button" class="btn_s btn_gray" onclick="">자원 그룹 관리</button>
+            </div>
+          </div>
+          <div class="article">
+            <div class="tbl_wrap">
+              <table id="jqgrid" class="jq-grid"></table>
+            </div>
+            <div class="paginate">
+  <a href="#" class="first" title="처음">〈〈</a>
+  <a href="#" class="pre" title="이전">〈</a>
+  <span>
+    <a href="#" class="on">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">5</a>
+    <a href="#">6</a>
+    <a href="#">7</a>
+    <a href="#">8</a>
+    <a href="#">9</a>
+    <a href="#">10</a>
+  </span>
+  <a href="#" class="next" title="다음">〉</a>
+  <a href="#" class="last" title="마지막">〉〉</a>
+</div>
+          </div>
+        </div>        
+      </div>
+    </div>
+  </div>
+  <!-- // Contents -->
+  <!-- Footer -->
+<div class="footer">
+  <copy>Copyright &copy; 2023. All rights reserved.</copy>
+</div>
+<!-- // Footer -->
+
+  <!-- 나의 중점관리자원 등록 -->
+  <div class="pop_overlay">
+  <div class="pop_wrap p_loc_resource_regist">
+    <div class="pop_tit">
+      <h1>지역 중점관리자원 등록</h1>
+      <button type="button" class="btn_pop_close" data-btn_type="closePop"></button>
+    </div>
+    <div class="pop_body pop_blur">
+      <div class="pop_cont">
+        <div class="flex_wrap f_sb">
+          <div class="cmmn_resource">
+            <div class="tit_h3">
+              <h3>공통자원목록 선택</h3>
+            </div>
+            <div class="search search_s">
+              <ul class="search_lst">                
+                <li class="full"><label for="div_lg_cd">자원분류</label>
+                  <div class="ipt_group">
+                    <select name="sort1" title="대분류" id="div_lg_cd">
+                      <option value="자원 대분류">자원 대분류</option>
+                    </select>
+                    <select name="sort2" title="중분류" id="div_md_cd">
+                      <option value="자원 중분류">자원 중분류</option>
+                    </select>
+                    <select name="sort3" title="자원 소분류" id="div_sm_cd">
+                      <option value="자원 소분류">자원 소분류</option>
+                    </select>
+                  </div>
+                </li>
+                <li>
+                  <label for="dsst_rsc_nm">자원명</label>
+                  <input type="text" id="dsst_rsc_nm"/>
+                </li>
+                <li class="btn_wrap">
+                  <button type="button" id="search_btn" class="btn btn_blue">검색</button>
+                </li>
+              </ul>
+            </div>
+            <div class="tbl_wrap">
+              <table id="grid_cmmn_resource" class="jq-grid"></table>
+              <div id="jqGridPager"></div>
+            </div>
+          </div>
+          <div class="ipt_wrap flex-grow">
+            <div class="tit_h3">
+              <h3>세부사항</h3>
+            </div>
+            <ul class="ipt_lst">
+              <li><label>자원명&sol;규격</label><input type="text"></li>
+              <li><label>단위</label><input type="text"></li>
+              <li><label>자원구분</label><select name="" id=""><option value=""></option></select></li>
+              <li><label>자원등급</label><select name="" id=""><option value=""></option></select></li>
+              <li><label for="">신규 등록량</label><input type="number"></li>
+              <li><label for="">적정 보유량</label><input type="number"></li>
+              <li><label for="">1일사용량</label><input type="number"></li>
+              <li><label for="">안전재고(B)</label><input type="number"></li>
+              <li><label for="">전략재고(A)</label><input type="number" class="font_orange">
+                <div class="range_wrap">
+                  <label for="range1">가중치<span class="font_orange">1.5</span></label>
+                  <input type="range" id="range1" name="" step="0.1" min="0" max="3" value="1.5">
+                </div>
+              </li>
+              <li><label for="">임의재고(C)</label><input type="number" class="font_navy">
+                <div class="range_wrap">
+                  <label for="range2">가중치<span class="font_navy">0.5</span></label>
+                  <input type="range" id="range2" name="" step="0.1" min="0" max="1" value="0.5">
+                </div>
+              </li>
+            </ul>            
+            <div class="info_lst">
+              <ul>
+                <li>사용량에 대한 근거가 없기에, 자원별 보유량을 기준으로 장비는 30일 사용분, 자재는 7일 사용분으로 가정하여 1일 사용량을 산출</li>
+                <li>B등급 안전재고는 1일 평균 사용량<em>제품공급 리드타임 ( 7일 적용 )</em></li>
+                <li>A등급 전략재고는 안전재고( B등급 )<em>기본 가중치 1.5 적용 / 위험 순위가 높은(중점재난유형) 재난유형의 B등급 자원</em></li>
+                <li>C등급 임의재고는 안전재고( B등급 )
+                <em>설정치 ( &lt; 1 이하이며, 0.5를 적용 ) : 0.5는 가정치로  0.1 수준으로 적용할 수도 있음</em></li>
+              </ul>
+            </div>            
+          </div>
+        </div>
+        <div class="btn_wrap alignC">
+          <button type="button" class="btn btn_blue" onclick="btnAlert()">등록</button>
+          <button type="button" class="btn btn_gray" onclick="">닫기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+var cmmn_resource =[
+  { 't1': '수중펌프', 't2': '5000kg', 't3': '장비' },
+  { 't1': '수중펌프', 't2': '5000kg', 't3': '장비' },
+  { 't1': '수중펌프', 't2': '5000kg', 't3': '장비' },
+]
+$('#grid_cmmn_resource').jqGrid({
+  data: cmmn_resource,
+    datatype: "local",
+    colNames: ['자원명','규격','자원 구분'],
+    colModel: [
+      { name: 't1'},
+      { name: 't2'},
+      { name: 't3' }
+    ],
+    height: 'auto',  
+    viewrecords: true,
+    rowTotal: -1,
+    autowidth: true,
+    pager: "#jqGridPager"
+});
+</script>
+  <!--// 나의 중점관리자원 등록__e -->
+  <!-- 나의 중점관리자원 상세 -->
+  <div class="pop_overlay">
+  <div class="pop_wrap p_loc_resource_dtl">
+    <div class="pop_tit">
+      <h1>지역 중점관리자원 상세</h1>
+      <button type="button" class="btn_pop_close" data-btn_type="closePop"></button>
+    </div>
+    <div class="pop_body pop_blur">
+      <div class="pop_cont">
+        <div class="ipt_wrap">
+          <div class="tit_h3 blind">
+            <h3>세부사항</h3>
+          </div>
+          <ul class="ipt_lst item3">
+            <li><label>재난구분</label><input type="text"></li>
+            <li><label>자원명&sol;규격</label><input type="text"></li>
+            <li><label>단위</label><input type="text"></li>
+            <li><label>자원구분</label><select name="" id=""><option value=""></option></select></li>
+            <li><label>보유현황</label><input type="number"></li>
+            <li><label for="">적정 보유량</label><input type="number"></li>
+            <li><label>자원등급</label><select name="" id=""><option value=""></option></select></li>
+            <li><label for="">1일사용량</label><input type="number"></li>
+            <li><label for="">신규 등록량</label><input type="number"></li>
+            <li><label for="">전략재고(A)</label><input type="number" class="font_orange">
+              <div class="range_wrap">
+                <label for="range1">가중치<span class="font_orange">1.5</span></label>
+                <input type="range" id="range1" name="" step="0.1" min="0" max="3" value="1.5">
+              </div>
+            </li>
+            <li class="flex_alignT"><label for="">안전재고(B)</label><input type="number"></li>
+            <li><label for="">임의재고(C)</label><input type="number" class="font_navy">
+              <div class="range_wrap">
+                <label for="range2">가중치<span class="font_navy">0.5</span></label>
+                <input type="range" id="range2" name="" step="0.1" min="0" max="1" value="0.5">
+              </div>
+            </li>
+            <li><label for="">폐기량</label><input type="number"></li>
+            <li><label for="">소모량</label><input type="number"></li>
+            <li><label for="">사용 불가량</label><input type="number"></li>
+          </ul>            
+          <div class="info_lst">
+            <ul>
+              <li>사용량에 대한 근거가 없기에, 자원별 보유량을 기준으로 장비는 30일 사용분, 자재는 7일 사용분으로 가정하여 1일 사용량을 산출</li>
+              <li>B등급 안전재고는 1일 평균 사용량<em>제품공급 리드타임 ( 7일 적용 )</em></li>
+              <li>A등급 전략재고는 안전재고( B등급 )<em>기본 가중치 1.5 적용 / 위험 순위가 높은(중점재난유형) 재난유형의 B등급 자원</em></li>
+              <li>C등급 임의재고는 안전재고( B등급 )
+              <em>설정치 ( &lt; 1 이하이며, 0.5를 적용 ) : 0.5는 가정치로  0.1 수준으로 적용할 수도 있음</em></li>
+            </ul>
+          </div>            
+          <div class="btn_wrap alignC">
+            <button type="button" class="btn btn_blue" onclick="btnAlert()">적용</button>
+            <button type="button" class="btn btn_gray" onclick="">닫기</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <!--// 나의 중점관리자원 상세__e -->
+  <!-- 나의 중점관리자원 그룹화 -->
+  <div class="pop_overlay">
+  <div class="pop_wrap p_loc_resource_grouping">
+    <div class="pop_tit">
+      <h1>재난관리자원 그룹화</h1>
+      <button type="button" class="btn_pop_close" data-btn_type="closePop"></button>
+    </div>
+    <div class="pop_body pop_blur">
+      <div class="pop_cont">
+        <div class="flex_wrap f_sb">
+          <div class="ungrouped">
+            <div class="tit_h3">
+              <h3>미분류</h3>
+            </div>
+            <div class="search search_s">
+              <ul class="search_lst">
+                <li><label for="div_lg_cd">자원분류</label>
+                <div class="ipt_group">
+                  <select name="sort1" title="대분류" id="div_lg_cd">
+                    <option value="자원 대분류">자원 대분류</option>
+                    <option value="">장비</option>
+                    <option value="">자재</option>
+                  </select>
+                  <input type="text" list="resource_lst">
+                  <datalist id="resource_lst">
+                    <option value="자원1"></option>
+                    <option value="자원2"></option>
+                    <option value="자원3"></option>
+                  </datalist>
+                </div>
+                </li>
+                <li class="btn_wrap">
+                  <button type="button" id="search_btn" class="btn btn_blue">검색</button>
+                </li>
+              </ul>
+              <!-- 주석부분이 화면설계 UI -->
+              <!-- <ul class="search_lst">                
+                <li class="full"><label for="div_lg_cd">자원분류</label>
+                  <div class="ipt_group">
+                    <select name="sort1" title="대분류" id="div_lg_cd">
+                      <option value="자원 대분류">자원 대분류</option>
+                    </select>
+                    <select name="sort2" title="중분류" id="div_md_cd">
+                      <option value="자원 중분류">자원 중분류</option>
+                    </select>
+                    <select name="sort3" title="자원 소분류" id="div_sm_cd">
+                      <option value="자원 소분류">자원 소분류</option>
+                    </select>
+                  </div>
+                </li>
+                <li>
+                  <label for="dsst_rsc_nm">자원명</label>
+                  <input type="text" id="dsst_rsc_nm"/>
+                </li>
+                <li class="btn_wrap">
+                  <button type="button" id="search_btn" class="btn btn_blue">검색</button>
+                </li>
+              </ul> -->
+            </div>
+            <div class="tbl_wrap">
+              <table id="grid_resource" class="jq-grid"></table>
+              <div id="pager2"></div>
+            </div>
+          </div>
+          
+          <div class="btn_area">
+            <button type="button" id="" class="btn_group_add">추가 &gt; </button>
+            <button type="button" id="" class="btn_group_del">&lt; 제거</button>
+          </div>
+          
+          <div class="grouped">
+            <div class="tit_h3">
+              <h3>그룹</h3>
+            </div>
+            <div class="search search_s">
+              <ul class="search_lst">                
+                <li><label for="dsst_cl">재난분류</label>
+                  <div class="ipt_group">
+                    <select name="sort1" title="재난 대분류" id="dsst_cl">
+                    <option value="재난 대분류">재난 대분류</option>
+                  </select>
+                  <select name="sort2" title="재난 중분류" id="dsst_ty">
+                    <option value="재난 중분류">재난 중분류</option>
+                  </select>
+                  </div>
+                </li>
+                <li class="btn_wrap">
+                  <button type="button" id="search_btn" class="btn btn_blue">검색</button>
+                </li>
+              </ul>
+            </div>
+            <div class="tbl_wrap">
+              <table id="grid_dsst" class="jq-grid"></table>
+              <div id="pager1"></div>
+            </div>
+          </div>
+        </div>
+        <div class="btn_wrap alignC">
+          <button type="button" class="btn btn_blue" onclick="btnAlert()">적용</button>
+          <button type="button" class="btn btn_gray" onclick="">닫기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+var dsst =[
+    { 't1': '수중펌프', 't2': '5000kg', 't3': '장비' },
+    { 't1': '수중펌프', 't2': '5000kg', 't3': '장비' },
+    { 't1': '수중펌프', 't2': '5000kg', 't3': '장비' },
+  ],
+  resource=[
+    { 't1': '수중펌프', 't2': '5000kg', 't3': '장비' },
+    { 't1': '수중펌프', 't2': '5000kg', 't3': '장비' },
+    { 't1': '수중펌프', 't2': '5000kg', 't3': '장비' },
+  ]
+
+$('#grid_dsst').jqGrid({
+  data: dsst,
+    datatype: "local",
+    colNames: ['자원명','규격','자원 구분'],
+    colModel: [
+      { name: 't1'},
+      { name: 't2'},
+      { name: 't3' }
+    ],
+    height: 'auto',  
+    viewrecords: true,
+    rowTotal: -1,
+    autowidth: true,
+    pager: "#pager1",
+    multiselect:true
+});
+$('#grid_resource').jqGrid({
+  data: resource,
+    datatype: "local",
+    colNames: ['자원명','규격','자원 구분'],
+    colModel: [
+      { name: 't1'},
+      { name: 't2'},
+      { name: 't3' }
+    ],
+    height: 'auto',  
+    viewrecords: true,
+    rowTotal: -1,
+    autowidth: true,
+    pager: "#pager2",
+    multiselect:true
+});
+</script>
+  <!--// 나의 중점관리자원 그룹화__e -->
+  <!-- 재난자원 적정보유량 조정 -->
+  <div class="pop_overlay">
+  <div class="pop_wrap p_resource_adjust">
+    <div class="pop_tit">
+      <h1>재난자원 적정보유량</h1>
+      <button type="button" class="btn_pop_close" data-btn_type="closePop"></button>
+    </div>
+    <div class="pop_body pop_blur">
+      <div class="pop_cont">
+        <div class="tbl_wrap">
+          <table id="resource" class="jq-grid"></table>
+          <div id="pager"></div>
+        </div>
+        <div class="btn_wrap alignC">
+          <button type="button" class="btn btn_blue" onclick="btnAlert()">적용</button>
+          <button type="button" class="btn btn_gray" onclick="">취소</button>
+        </div>
+      </div>       
+    </div>
+  </div>
+</div>
+<script>
+  var mydata1 = [
+    { 't1': '자연재난', 't2': '태풍', 't3': '수중펌프', 't4': '1000 이상 kW ', 't5': '대', 't6': '장비', 't7': 'A', 't8': '84', 't9': '29', 't10': '3', attr: {t1: {rowspan: "3"}, t2:{rowspan:"3"}} },
+    { 't1': '자연재난', 't2': '태풍', 't3': '수중인라인펌프', 't4': '1000 이상 kW ', 't5': '대', 't6': '장비', 't7': 'A', 't8': '84', 't9': '29', 't10': '3',attr: {t1: {display: "none"}, t2: {display: "none"}}},
+    { 't1': '자연재난', 't2': '태풍', 't3': '엔진펌프', 't4': '1000 이상 kW ', 't5': '대', 't6': '장비', 't7': 'A', 't8': '84', 't9': '29', 't10': '3', attr: {t1: {display: "none"}, t2: {display: "none"}}}
+  ],
+  arrtSetting = function (rowId, val, rawObject, cm) {
+    var attr = rawObject.attr[cm.name], result;
+    if (attr.rowspan) {
+        result = `rowspan='${attr.rowspan}'`;
+    } else if (attr.display) {
+        result = `style="display:${attr.display}"`;
+    }
+    return result;
+  };
+
+  
+  $("#resource").jqGrid({
+    data: mydata1,
+    datatype: "local",
+    useColSpanStyle: true,
+    groupHeaders:[
+      {startColumnName:'t1',numberofColumns:2,titleText:'재난구분'}
+    ],
+    colNames: ['재난 대분류','재난 중분류','자원명','규격','단위','자원 구분','재난관리자원등급','보유 현황', '갱신 수량','변경수량'],
+    colModel: [
+      { name: 't1', cellattr: arrtSetting},
+      { name: 't2', cellattr: arrtSetting},
+      { name: 't3' },
+      { name: 't4' },
+      { name: 't5' },
+      { name: 't6' },
+      { name: 't7' },
+      { name: 't8' },
+      { name: 't9' },
+      { name: 't10' }
+    ],
+    height: 'auto',  
+    rownumbers: true,
+    viewrecords: true,
+    rowTotal: -1,
+    rowNum: 10,
+    autowidth: true,
+    pager: "#pager",
+  });
+  function axiBtn(cellValue, options, rowdata, action){
+  var html, txt = "";
+  var type = options.colModel.icotype;
+  html = `<button type="button" class="axi btn_${type}" title="자원정보 설정">${cellValue}</button>`;
+  return html;
+  } 
+</script> 
+  <!--// 재난자원 적정보유량 조정__e -->
+  <!-- 재난관리자원 응원처리 경고 -->
+  <div class="pop_overlay">
+  <div class="pop_wrap p_disman01_2">
+    <div class="pop_tit">
+      <h1>재난관리자원 응원요청</h1>
+      <button type="button" class="btn_pop_close" closePop></button>
+    </div>
+    <div class="pop_body pop_blur">
+      <div class="pop_cont">
+        <p class="alert_wrap">지원 요청을 승인하시겠습니까?</p>
+        <div class="btn_wrap alignC">
+          <button type="button" class="btn btn_blue">확인</button>
+          <button type="button" class="btn btn_gray">취소</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <!--// 재난관리자원 응원처리 경고 -->
+
+
+<script>
+  var mydata = [
+    { 't1': '자연재난', 't2': '태풍', 't3': '수중펌프', 't4': '1000 이상 kW ', 't5': '대', 't6': '장비', 't7': 'A', 't8': '84', 't9': '29', 't10': '3', 't11': '29', "t12" : "set",attr: {t1: {rowspan: "3"}, t2:{rowspan:"3"}} },
+    { 't1': '자연재난', 't2': '태풍', 't3': '수중인라인펌프', 't4': '1000 이상 kW ', 't5': '대', 't6': '장비', 't7': 'A', 't8': '84', 't9': '29', 't10': '3', 't11': '29', "t12" : "set",attr: {t1: {display: "none"}, t2: {display: "none"}}},
+    { 't1': '자연재난', 't2': '태풍', 't3': '엔진펌프', 't4': '1000 이상 kW ', 't5': '대', 't6': '장비', 't7': 'A', 't8': '84', 't9': '29', 't10': '3', 't11': '29', "t12" : "set",attr: {t1: {display: "none"}, t2: {display: "none"}}}
+  ],
+  arrtSetting = function (rowId, val, rawObject, cm) {
+    var attr = rawObject.attr[cm.name], result;
+    if (attr.rowspan) {
+        result = `rowspan='${attr.rowspan}'`;
+    } else if (attr.display) {
+        result = `style="display:${attr.display}"`;
+    }
+    return result;
+  };
+
+  
+  $("#jqgrid").jqGrid({
+    data: mydata,
+    datatype: "local",
+    colNames: ['재난구분','자원명','규격','단위','자원 구분','재난관리자원등급','보유 현황','적정 보유량','전략재고(A등급)','안전재고(B등급)','임의재고(C등급)','자원 관리',],
+    colModel: [
+      { name: 't1', cellattr: arrtSetting},
+      { name: 't2', cellattr: arrtSetting},
+      { name: 't3' },
+      { name: 't4' },
+      { name: 't5' },
+      { name: 't6' },
+      { name: 't7' },
+      { name: 't8' },
+      { name: 't9' },
+      { name: 't10' },
+      { name: 't11' },
+      { name: 't12', formatter: axiBtn, icotype:'set' }
+    ],
+    height: 'auto',  
+    rownumbers: true,
+    viewrecords: true,
+    rowTotal: -1,
+    rowNum: 10,
+    autowidth: true
+  });
+  function axiBtn(cellValue, options, rowdata, action){
+  var html, txt = "";
+  var type = options.colModel.icotype;
+  html = `<button type="button" class="axi btn_${type}" title="자원정보 설정">${cellValue}</button>`;
+  return html;
+  } 
+</script> 
+
+</body>
+</html>

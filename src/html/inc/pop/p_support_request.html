@@ -1,0 +1,131 @@
+<div class="pop_overlay">
+  <div class="pop_wrap p_support_request">
+    <div class="pop_tit">
+      <h1>재난자원 응원 요청</h1>
+      <button type="button" class="btn_pop_close" data-btn_type="closePop"></button>
+    </div>
+    <div class="pop_body pop_blur">
+      <div class="pop_cont">
+        <div class="article">
+          <div class="tit_h3">
+            <h3>응원 요청 자원정보</h3>
+          </div>
+          <div class="box_gray">
+            <ul class="dashboard">
+              <li><em>재난구분</em>자연재난/태풍</li>
+              <li><em>자원명</em>수중펌프</li>
+              <li><em>규격</em>1000 이상 kW</li>
+              <li><em>단위</em>대</li>
+              <li><em>자원 구분</em>장비</li>
+              <li><em>재난관리자원 등급</em>A</li>
+              <li><em>보유 현황</em><span class="font_orange">20</span></li>
+              <li><em>적정 보유량</em><span class="font_navy">29</span></li>
+              <li><em>1일 사용량</em>3</li>
+              <li><em>수락 대기중 수량</em>5</li>
+            </ul>
+          </div>
+        </div>
+        <div class="article">
+          <div class="tit_h3"><h3>응원 요청 가능 지자체 정보</h3></div>
+          <div class="tbl_wrap">
+            <table id="resource" class="jq-grid"></table>
+            <div id="pager"></div>
+          </div>
+        </div>
+        <div class="article">
+          <div class="tit_h3"><h3>나의 해당 자원 최근 3개월 응원 요청 내역</h3></div>
+        </div>
+        <div class="tbl_wrap">
+          <table id="recent" class="jq-grid"></table>
+          <div id="pager2"></div>
+        </div>
+        <div class="btn_wrap alignC">
+          <button type="button" class="btn btn_gray" onclick="">닫기</button>
+        </div>
+      </div>       
+    </div>
+  </div>
+</div>
+<script>
+  var mydata1 = [
+    { 't1': '수중펌프', 't2': '1000 이상 kW', 't3': '서울특별시', 't4': '중구', 't5': '34', 't6': '29', 't7': '0', 't8': '5', 't9': '0', 't10':'request'},
+    { 't1': '수중펌프', 't2': '1000 이상 kW', 't3': '서울특별시', 't4': '중구', 't5': '34', 't6': '29', 't7': '0', 't8': '5', 't9': '0', 't10':'cancel'},
+  ];
+ 
+  
+  $("#resource").jqGrid({
+    data: mydata1,
+    datatype: "local",
+    useColSpanStyle: true,
+    groupHeaders:[
+      {startColumnName:'t3',numberofColumns:2,titleText:'기관'}
+    ],
+    colNames: ['자원명','규격','시도','시군구','보유현황','적정 보유량','수락 대기','응원 가능량','추가 요청', '응원요청'],
+    colModel: [
+      { name: 't1'},
+      { name: 't2'},
+      { name: 't3' },
+      { name: 't4' },
+      { name: 't5' },
+      { name: 't6',classes:'font_navy'},
+      { name: 't7' },
+      { name: 't8' },
+      { name: 't9',  formatter:iptNum },
+      { name: 't10',  formatter:tblBtn2 }
+    ],
+    height: 'auto',  
+    viewrecords: true,
+    rowTotal: -1,
+    autowidth: true,
+    pager: "#pager",
+  });
+  function iptNum(cellValue, options, rowdata, action){
+    var html, txt = "";
+    var type = options.colModel.icotype;
+    html = `<input type="number" class="alignC" min="0" title="${cellValue}" value="${cellValue}" onchange="changeEvt(this);" />`;
+    return html;
+  } 
+  function changeEvt(e){
+    (e.value != 0)?e.style.color='red':e.style.color='inherit';
+  }
+  function tblBtn2(cellValue, options, rowdata, action) {
+    var html, color, txt = "";
+    switch (cellValue) {
+      case "request":
+        txt = "응원요청";
+        color = 'blueline'
+        break;
+      case "cancel":
+        txt = "요청취소";
+        color = 'redline'
+        break;
+      default:
+        txt = "none";
+    }
+    html = `<button type="button" class="btn_s btn_${color} btn_${cellValue}"> ${txt}</button>`;
+    return html;
+  }
+  $("#recent").jqGrid({
+    data: mydata1,
+    datatype: "local",
+    useColSpanStyle: true,
+    groupHeaders:[
+      {startColumnName:'t3',numberofColumns:2,titleText:'기관'}
+    ],
+    colNames: ['응원요청일자','응원수락일자','시도','시군구','응원요청수량','응원 수락 수량','상태'],
+    colModel: [
+      { name: 't1'},
+      { name: 't2'},
+      { name: 't3' },
+      { name: 't4' },
+      { name: 't5' },
+      { name: 't6',classes:'font_navy'},
+      { name: 't7' }
+    ],
+    height: 'auto',  
+    viewrecords: true,
+    rowTotal: -1,
+    autowidth: true,
+    pager: "#pager2",
+  });
+</script> 

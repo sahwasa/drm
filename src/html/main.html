@@ -1,0 +1,41 @@
+@@include('inc/top.html')
+
+<body>
+  @@include('inc/header.html')
+  <!-- Contents -->
+  <div class="contents main">
+    <ul class="menu_wrap wrap">
+      <li>
+        <h4>중점 관리 자원 관리 </h4>
+        <a href="disman04.html">바로가기</a>
+      </li>
+      <li>
+        <p class="alarm"><span>2</span>응원요청</p>
+        <h4>응원 현황 관리</h4>
+        <a href="disman01.html">바로가기</a>
+      </li>
+      <li>
+        <h4>재난위험성 평가조회</h4>
+        <a href="disman02.html">바로가기</a>
+      </li>
+      <li>
+        <h4>응원 이력</h4>
+        <a href="disman01.html">바로가기</a>
+      </li>
+    </ul>
+  </div>
+  <!-- // Contents -->
+  @@include('inc/footer.html')
+
+</body>
+
+<script>
+  $('#btnPopVirus').on('click', function () {
+    $('#popVirus').show();
+  })
+  $('#btnPopFever').on('click', function () {
+    $('#popFever').show();
+  })
+</script>
+
+</html>

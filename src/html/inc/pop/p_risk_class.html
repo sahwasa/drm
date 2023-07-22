@@ -1,0 +1,76 @@
+<div class="pop_overlay">
+  <div class="pop_wrap p_risk_class">
+    <div class="pop_tit">
+      <h1>재난 위험성 평가 등급</h1>
+      <button type="button" class="btn_pop_close" data-btn_type="closePop"></button>
+    </div>
+    <div class="pop_body pop_blur">
+      <div class="pop_cont">
+        <div class="ipt_wrap">
+          <div class="tit_h3 blind">
+            <h3>세부사항</h3>
+          </div>
+          <div class="tbl_wrap">
+            <table id="risk_class_grid" class="jq-grid"></table>
+          </div>
+          <div class="section">
+            <div class="tab tab_s" data-tab="tab">
+              <ul class="tab_lst" data-tab="lst">
+                <li><a href="#tab01" class="on">위해성</a></li>
+                <li><a href="#tab02">노출성</a></li>
+                <li><a href="#tab03">취약성</a></li>
+                <li><a href="#tab04">저감성</a></li>
+                <li><a href="#tab05">위험성 평가</a></li>
+              </ul>
+            </div>
+            <div class="tab_container" data-tab="container">
+              <div id="tab01" class="section tab_cont" data-tab="cont">
+                @@include('risk_class01.html')
+              </div>
+              <div id="tab02" class="section tab_cont" data-tab="cont">
+                @@include('risk_class02.html')
+              </div>
+              <div id="tab03" class="section tab_cont" data-tab="cont">
+                @@include('risk_class03.html')
+              </div>
+              <div id="tab04" class="section tab_cont" data-tab="cont">
+                @@include('risk_class04.html')
+              </div>
+              <div id="tab05" class="section tab_cont" data-tab="cont">
+                @@include('risk_class05.html')
+              </div>
+            </div>
+          </div>
+          <div class="btn_wrap alignC">
+            <button type="button">산정지표 평가방법 보기</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  var mydata1 = [
+    { 't1': '서울특별시 종로구', 't2': '2', 't3': '1.5', 't4': '0.25', 't5': '0.54', 't6': '2.41', 't7': '0.06', 't8': '1'},
+    { 't1': '서울특별시 종로구', 't2': '2', 't3': '1.5', 't4': '0.25', 't5': '0.54', 't6': '2.41', 't7': '0.06', 't8': '1'}
+  ];
+ 
+  
+  $("#risk_class_grid").jqGrid({
+    data: mydata1,
+    datatype: "local",
+    useColSpanStyle: true,
+    groupHeaders:[
+      {startColumnName:'t3',numberofColumns:2,titleText:'기관'}
+    ],
+    colNames: ['지자체','위해성','노출성','취약성','저감성','위험성 평가','위험성 평가(표준화)','위험성 평가 등급'],
+    colModel: [
+      { name: 't1',width:185}, { name: 't2'}, { name: 't3' }, { name: 't4' },
+      { name: 't5' }, { name: 't6'}, { name: 't7' }, { name: 't8' }
+    ],
+    height: '170',  
+    viewrecords: true,
+    rowTotal: -1,
+    autowidth: true,
+  });
+</script>

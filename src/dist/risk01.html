@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>재난관리자원 운영&middot;관리 시스템</title>
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="../plugins/axicon/axicon.min.css" />
+  <link rel="stylesheet" href="../plugins/jquery-ui/themes/base/jquery-ui.min.css" />
+  <link rel="stylesheet" href="../plugins/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.css">
+  <link rel="stylesheet" href="../plugins/jqueryui-timepicker-addon/dist/jquery.datetimepicker.css">
+  <link rel="stylesheet" href="../plugins/jqGrid/css/ui.jqgrid.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/sub.css">
+  <link rel="stylesheet" href="../css/pop.css">
+
+  <script src="../plugins/jquery/dist/jquery.min.js"></script>
+  <script src="../plugins/jquery-ui/jquery-ui.min.js"></script>
+  <script src="../plugins/jquery-ui/ui/i18n/datepicker-ko.js"></script>
+  <script src="../plugins/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.js"></script>
+  <script src="../plugins/jqueryui-timepicker-addon/dist/jquery.datetimepicker.full.min.js"></script>
+  <script src="../js/Chart.bundle.js"></script>
+  <script src="../plugins/jqGrid/js/jquery.jqGrid.min.js"></script>
+  <script src="../plugins/jqGrid/js/i18n/grid.locale-kr.js"></script>
+  <script src="../js/file_attach.js"></script>
+  <script src="../js/ui_common.js"></script>
+</head>
+
+<body>
+  <!-- Header -->
+<header>
+  <div class="util">
+    <div class="wrap">
+      <b>사용자</b><span>님이 로그인 하셨습니다.</span>
+      <ul class="util_list">
+        <li><button type="button" onclick="btnInfo()">내정보</button></li>
+        <li><button type="button">로그아웃</button></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap flex_wrap f_sb">
+    <h1 class="logo">
+      <a href="main.html">
+        <img src="../images/img_h1_title.png" alt="재난관리자원 운영&middot;관리 시스템">
+      </a>
+    </h1>
+    <ul class="gnb flex_wrap" role="navigation">
+      <li>
+        <a class="on" href="disman01.html">재난관리자원 관리</a>
+        <ul class="sub">
+          <!-- 행안부 사용자 -->
+          <li><a href="disman01.html" class="on">중점관리자원 보유 현황</a></li>
+          <li><a href="disman02.html">중점관리자원 응원 현황</a></li>
+          <!-- 행안부 사용자__e -->
+          <!-- 지자체 사용자 -->
+          <li><a href="disman01.html">지역 중점관리자원</a></li>
+          <li><a href="disman04.html">지역 중점관리자원 응원 요청</a></li>
+          <!-- 지자체 사용자__e -->
+        </ul>
+      </li>
+      <li>
+        <a href="danger01.html">재난위험성 평가조회</a>
+        <ul class="sub">
+          <li><a href="danger01.html">지역별 재난 위험도</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="admin01.html">시스템 관리</a>
+        <ul class="sub">
+          <li><a href="admin01.html">사용자 관리</a></li>
+          <li><a href="admin02.html">공통코드관리</a></li>
+          <li><a href="admin03.html">자원관리</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</header>
+<!-- // Header -->
+
+<!-- 내정보 -->
+
+<!--// 내정보 -->
+
+<!-- 내정보 수정 -->
+
+<!--// 내정보 수정 -->
+
+<script>
+  function btnInfo() {
+    $('.p_cmmn02_1_1').parent('.pop_overlay').toggle();
+  }
+
+  function btnEdit() {
+    $('.p_cmmn02_1_2').parent('.pop_overlay').show();
+  }
+</script>
+  <!-- Contents -->
+  <div class="contents wrap">
+    <div class="notice_area">
+      <h2 class="tit_h2">재난 위험성 평가 조회</h2>
+      <div>
+        <div class="section">
+          <div class="article">
+            <div class="tit_h3">
+              <h3>서울특별시 종로구 위험성 평가등급</h3>                  
+            </div>
+            <div class="grade_wrap">
+              <div class="box_gray">
+                <h4>사회재난</h4>
+                <ul class="dashboard">
+                  <li><em>화재</em>4</li>
+                  <li><em>산불</em>1</li>
+                  <li><em>붕괴</em>3</li>
+                  <li><em>폭발</em>1</li>
+                  <li><em>해상선박 사고</em>2</li>
+                  <li><em>환경오염 사고</em>2</li>
+                  <li><em>해양오염 사고</em>2</li>
+                  <li><em>가축 전염병</em>1</li>
+                  <li><em>감염병</em>3</li>
+                </ul>
+              </div>
+              <div class="box_gray">
+                <h4>자연재난</h4>
+                <ul class="dashboard">
+                  <li><em>태풍</em>1</li>
+                  <li><em>호우</em>3</li>
+                  <li><em>대설</em>4</li>
+                  <li><em>강풍</em>1</li>
+                  <li><em>풍량</em>1</li>
+                  <li><em>풍수해</em>5</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          </div>
+          <div class="flex_wrap f_sb">
+            <div style="position:relative;">
+              <img style="position:absolute;bottom:10px;right:10px;" src="../images/img_legend_01.png" alt="범례 이미지">
+              <img src="https://via.placeholder.com/489x551/fdd.png/aaa">
+            </div>
+            <div class="tbl_wrap" style="width:690px">
+              <div class="tit_h3">
+                <h3>타 지자체 위험성 평가 등급 조회</h3>                  
+              </div>
+              <div class="search">
+                <ul class="flex_wrap">
+                <li>
+                  <ul>
+                    <li>
+                      <label for="dsst_cl">재난분류</label> 
+                      <select id="dsst_cl" name="" title="">
+                        <option value="전체">전체</option>
+                        <option value="자연재난">자연재난</option>
+                        <option value="사회재난">사회재난</option>
+                      </select>
+                      <select id="dsst_ty" name="" title="">
+                        <option value="전체">전체</option>
+                        <option value="호우">호우</option>
+                        <option value="지진">지진</option>
+                      </select>
+                    </li>                  
+                    <li>
+                      <label for="userSelOrgan">지역선택</label>
+                      <select id="userSelOrgan" name="userSelOrgan" title="">
+                        <option value="전체">전체</option>
+                      </select>
+                      <select id="userSelOrgan2" name="" title="">
+                        <option value="전체">전체</option>
+                      </select>
+                      <input type="text" id="organ_nm" placeholder="지역명" list="org_lst" />
+                      <datalist id="org_lst">
+                        <option value="독산동"></option>
+                        <option value="가산동"></option>
+                      </datalist>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <div class="btn_wrap">
+                    <button type="button" class="btn btn_blue">검색</button>
+                  </div>
+                </li>
+              </ul>
+              </div>
+              <div class="tbl_wrap">
+                <table id="jqgrid" class="jq-grid"></table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- // Contents -->
+  <!-- Footer -->
+<div class="footer">
+  <copy>Copyright &copy; 2023. All rights reserved.</copy>
+</div>
+<!-- // Footer -->
+
+  <div class="pop_overlay">
+  <div class="pop_wrap p_alert">
+    <div class="pop_tit">
+      <h1>비교 분석 지원</h1>
+      <button type="button" class="btn_pop_close" closePop></button>
+    </div>
+    <div class="pop_body">
+      <p class="alert_txt">‘종로구’와 ‘성북구’의 ‘태풍’ <em class="font_orange">재난 위험성 평가 등급 관련</em> 비교 정보를 제공합니다.<br />아래 버튼에서 비교할 정보를 선택하세요.
+      </p>
+    </div>
+    <div class="btn_wrap">
+      <button type="button" class="btn btn_blue">등급 산정 지표</button>
+      <button type="button" class="btn btn_blue">재난 자원 보유량</button>
+      <button type="button" class="btn btn_gray">취소</button>
+    </div>
+  </div>
+</div>
+  <div class="pop_overlay">
+  <div class="pop_wrap p_risk_class">
+    <div class="pop_tit">
+      <h1>재난 위험성 평가 등급</h1>
+      <button type="button" class="btn_pop_close" data-btn_type="closePop"></button>
+    </div>
+    <div class="pop_body pop_blur">
+      <div class="pop_cont">
+        <div class="ipt_wrap">
+          <div class="tit_h3 blind">
+            <h3>세부사항</h3>
+          </div>
+          <div class="tbl_wrap">
+            <table id="risk_class_grid" class="jq-grid"></table>
+          </div>
+          <div class="section">
+            <div class="tab tab_s" data-tab="tab">
+              <ul class="tab_lst" data-tab="lst">
+                <li><a href="#tab01" class="on">위해성</a></li>
+                <li><a href="#tab02">노출성</a></li>
+                <li><a href="#tab03">취약성</a></li>
+                <li><a href="#tab04">저감성</a></li>
+                <li><a href="#tab05">위험성 평가</a></li>
+              </ul>
+            </div>
+            <div class="tab_container" data-tab="container">
+              <div id="tab01" class="section tab_cont" data-tab="cont">
+                <div class="section">
+  <div class="tbl_top tit_h3">
+    <h3>사회재난 위해성 평가</h3>
+  </div>
+  <div class="tbl_wrap">
+    <table class="tbl_com tbl_factor">
+      <thead>
+        <tr>
+          <th scope="col" >지수</th>
+          <th scope="col">위해성 평가 방법(20년 기준)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>발생건수  =  0</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>0  ＜  발생건수  ≤  1</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>1  ＜  발생건수  ≤  2</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>2  ＜  발생건수  ≤  3</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>3 ＜ 발생건수</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="info"></div>
+</div>
+<div class="section">
+  <div class="tbl_top tit_h3">
+    <h3>자연재난 위해성 평가</h3>
+  </div>
+  <div class="tbl_wrap">
+  </div>
+  <div class="info"></div>
+</div>
+              </div>
+              <div id="tab02" class="section tab_cont" data-tab="cont">
+                <div class="section">
+  <div class="tbl_top tit_h3">
+    <h3>사회재난 위해성 평가</h3>
+  </div>
+  <div class="tbl_wrap">
+    <table class="tbl_com tbl_factor">
+      <thead>
+        <tr>
+          <th scope="col" >지수</th>
+          <th scope="col">위해성 평가 방법(20년 기준)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>발생건수  =  0</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>0  ＜  발생건수  ≤  1</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>1  ＜  발생건수  ≤  2</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>2  ＜  발생건수  ≤  3</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>3 ＜ 발생건수</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="info"></div>
+</div>
+<div class="section">
+  <div class="tbl_top tit_h3">
+    <h3>자연재난 위해성 평가</h3>
+  </div>
+  <div class="tbl_wrap">
+  </div>
+  <div class="info"></div>
+</div>
+              </div>
+              <div id="tab03" class="section tab_cont" data-tab="cont">
+                <div class="section">
+  <div class="tbl_top tit_h3">
+    <h3>사회재난 위해성 평가</h3>
+  </div>
+  <div class="tbl_wrap">
+    <table class="tbl_com tbl_factor">
+      <thead>
+        <tr>
+          <th scope="col" >지수</th>
+          <th scope="col">위해성 평가 방법(20년 기준)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>발생건수  =  0</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>0  ＜  발생건수  ≤  1</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>1  ＜  발생건수  ≤  2</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>2  ＜  발생건수  ≤  3</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>3 ＜ 발생건수</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="info"></div>
+</div>
+<div class="section">
+  <div class="tbl_top tit_h3">
+    <h3>자연재난 위해성 평가</h3>
+  </div>
+  <div class="tbl_wrap">
+  </div>
+  <div class="info"></div>
+</div>
+              </div>
+              <div id="tab04" class="section tab_cont" data-tab="cont">
+                <div class="section">
+  <div class="tbl_top tit_h3">
+    <h3>사회재난 위해성 평가</h3>
+  </div>
+  <div class="tbl_wrap">
+    <table class="tbl_com tbl_factor">
+      <thead>
+        <tr>
+          <th scope="col" >지수</th>
+          <th scope="col">위해성 평가 방법(20년 기준)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>발생건수  =  0</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>0  ＜  발생건수  ≤  1</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>1  ＜  발생건수  ≤  2</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>2  ＜  발생건수  ≤  3</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>3 ＜ 발생건수</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="info"></div>
+</div>
+<div class="section">
+  <div class="tbl_top tit_h3">
+    <h3>자연재난 위해성 평가</h3>
+  </div>
+  <div class="tbl_wrap">
+  </div>
+  <div class="info"></div>
+</div>
+              </div>
+              <div id="tab05" class="section tab_cont" data-tab="cont">
+                <div class="section">
+  <div class="tbl_top tit_h3">
+    <h3>사회재난 위해성 평가</h3>
+  </div>
+  <div class="tbl_wrap">
+    <table class="tbl_com tbl_factor">
+      <thead>
+        <tr>
+          <th scope="col" >지수</th>
+          <th scope="col">위해성 평가 방법(20년 기준)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>발생건수  =  0</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>0  ＜  발생건수  ≤  1</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>1  ＜  발생건수  ≤  2</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>2  ＜  발생건수  ≤  3</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>3 ＜ 발생건수</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="info"></div>
+</div>
+<div class="section">
+  <div class="tbl_top tit_h3">
+    <h3>자연재난 위해성 평가</h3>
+  </div>
+  <div class="tbl_wrap">
+  </div>
+  <div class="info"></div>
+</div>
+              </div>
+            </div>
+          </div>
+          <div class="btn_wrap alignC">
+            <button type="button">산정지표 평가방법 보기</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  var mydata1 = [
+    { 't1': '서울특별시 종로구', 't2': '2', 't3': '1.5', 't4': '0.25', 't5': '0.54', 't6': '2.41', 't7': '0.06', 't8': '1'},
+    { 't1': '서울특별시 종로구', 't2': '2', 't3': '1.5', 't4': '0.25', 't5': '0.54', 't6': '2.41', 't7': '0.06', 't8': '1'}
+  ];
+ 
+  
+  $("#risk_class_grid").jqGrid({
+    data: mydata1,
+    datatype: "local",
+    useColSpanStyle: true,
+    groupHeaders:[
+      {startColumnName:'t3',numberofColumns:2,titleText:'기관'}
+    ],
+    colNames: ['지자체','위해성','노출성','취약성','저감성','위험성 평가','위험성 평가(표준화)','위험성 평가 등급'],
+    colModel: [
+      { name: 't1',width:185}, { name: 't2'}, { name: 't3' }, { name: 't4' },
+      { name: 't5' }, { name: 't6'}, { name: 't7' }, { name: 't8' }
+    ],
+    height: '170',  
+    viewrecords: true,
+    rowTotal: -1,
+    autowidth: true,
+  });
+</script>
+
+  <script>
+    var mydata = [
+      { 't1': '장비', 't2': '401515301', 't3': '쓰레기수거용트럭', 't4': '대', 't5': 'A', 't6': '115', 't7': '115', 't8': 'search' }
+    ]
+    $("#jqgrid").jqGrid({
+      data: mydata,
+      datatype: "local",
+      colModel: [
+        { label: '지원유형', name: 't1', width: 100 },
+        { label: '세부품명번호', name: 't2' },
+        { label: '세부품명', name: 't3' },
+        { label: '단위', name: 't4', width: 80 },
+        { label: '지원등급', name: 't5', width: 80 },
+        { label: '현재 보유량', name: 't6', width: 100 },
+        { label: '최적 보유량', name: 't7', width: 100 },
+        { label: '주변 지자체 검색', name: 't8', formatter: tblBtn }
+      ],
+      height: 176,
+      rownumbers: true,
+      viewrecords: true,
+      rowTotal: -1,
+      rowNum: 10,
+      autowidth: true
+    });   
+
+    function tblBtn(cellValue, options, rowdata, action) {
+      var html, txt = "";
+      switch (cellValue) {
+        case "search":
+          txt = "검색하기";
+          break;
+        case "detail":
+          txt = "상세보기";
+          break;
+        default:
+          txt = "none";
+      }
+      html = '<button type="button" class="btn_xs btn_s_blueline btn_' + cellValue + '">' + txt + '</button>';
+      return html;
+    }
+  </script>
+</body>
+
+</html>

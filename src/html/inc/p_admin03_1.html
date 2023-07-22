@@ -1,0 +1,112 @@
+<div class="pop_overlay">
+  <div class="pop_wrap p_admin03_1">
+    <div class="pop_tit">
+      <h1>자원 등록</h1>
+      <button type="button" class="btn_pop_close" closePop></button>
+    </div>
+    <div class="pop_body pop_blur">
+      <div class="pop_cont">
+        <div>
+          <div class="tit_h3 flex_wrap f_sb" style="vertical-align:top;margin-bottom:10px;">
+            <h3>자원 등록</h3>
+          </div>
+          <table class="tbl_row">
+            <colgroup>
+              <col style="width:30%;">
+              <col style="width:70%;">
+            </colgroup>
+            <caption>자원 등록</caption>
+            <tr>
+              <th><label for="sort" class="required">자원 분류</label></th>
+              <td>
+                <span class="flex_wrap">
+                  <select name="sort">
+                    <option value="대분류">대분류</option>
+                  </select>
+                  <select name="sort2">
+                    <option value="중분류">중분류</option>
+                  </select>
+                  <select name="sort3">
+                    <option value="소분류">소분류</option>
+                  </select>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th><label for="name" class="required">세부품명</label></th>
+              <td>
+                <input type="text" id="name">
+              </td>
+            </tr>
+            <tr>
+              <th><label for="code" class="required">세부품목코드</label></th>
+              <td>
+                <input type="text" id="code">
+              </td>
+            </tr>
+            <tr>
+              <th><label for="type" class="required">재난유형</label></th>
+              <td>
+                <span class="flex_wrap f_sb" style="flex-wrap:wrap;">
+                  <label for="fire">
+                    <input type="checkbox">
+                    화재
+                  </label>
+                  <label for="fire">
+                    <input type="checkbox">
+                    지진
+                  </label>
+                  <label for="fire">
+                    <input type="checkbox">
+                    지진
+                  </label>
+                  <label for="fire">
+                    <input type="checkbox">
+                    지진
+                  </label>
+                  <label for="fire">
+                    <input type="checkbox">
+                    지진
+                  </label>
+                  <label for="fire">
+                    <input type="checkbox">
+                    지진
+                  </label>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th><label for="standard" class="required">규격</label></th>
+              <td>
+                <input type="text" id="standard">
+              </td>
+            </tr>
+            <tr>
+              <th><label for="unit">단위</label></th>
+              <td>
+                <span class="flex_wrap">
+                  <select name="sort1">
+                    <option value="선택">선택</option>
+                  </select>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th><label for="type" class="required">중점 자원 여부</label></th>
+              <td>
+                <span class="flex_wrap">
+                  <select name="sort1">
+                    <option value="선택">선택</option>
+                  </select>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="btn_wrap alignC">
+          <button type="button" class="btn btn_blue" onclick="btnAlert()">등록</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

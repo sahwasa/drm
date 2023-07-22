@@ -1,0 +1,74 @@
+<div class="pop_overlay">
+  <div class="pop_wrap p_cmmn02_1_1">
+    <div class="pop_tit">
+      <h1>내정보</h1>
+      <button type="button" class="btn_pop_close" closePop></button>
+    </div>
+    <div class="pop_body">
+      <div class="pop_cont">
+        <table class="tbl_info">
+          <caption>내정보</caption>
+          <colgroup>
+              <col style="width:30%;">
+              <col style="width:55%;">
+              <col style="width:15%;">
+          </colgroup>
+          <tr>
+            <th><label for="id">ID</label></th>
+            <td colspan="2" class="padding_5 alignL">Seoul_guro</td>
+          </tr>
+          <tr>
+            <th scope="row"><label for="pw">비밀번호</label></th>
+            <td><input type="password" id="pw" class="border_none" value="************" disabled></td>
+            <td><button type="button" class="btn_s btn_gray">변경</button></td>
+          </tr>
+          <tr>
+            <th><label for="name">이름</label></th>
+            <td colspan="2"><input type="text" id="name" class="border_none" value="홍길동" disabled></td>
+          </tr>
+          <tr>
+            <th><label for="division">소속기관</label></th>
+            <td colspan="2" class="alignL padding_5">서울특별시 구로구</td>
+          </tr>
+          <tr>
+            <th><label for="team">부서 / 직급</label></th>
+            <td colspan="2">
+              <span class="flex_wrap f_sb input_50">
+                <input type="text" id="team" value="재난자원관리과" disabled class="border_none">
+                <input type="text" id="position" value="주무관" disabled class="border_none">
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <th><label for="number">연락처</label></th>
+            <td colspan="2" class="number">
+              <input type="text" id="number" placeholder="부서전화" value="02-2110-0000" disabled class="border_none">
+            </td>
+          </tr>
+          <tr>
+            <th><label for="phonenumber">휴대폰</label></th>
+            <td colspan="2" class="phonenumber">
+              <input type="text" id="phonenumber" placeholder="휴대폰" value="010-0000-0000" disabled class="border_none">
+            </td>
+          </tr>
+          <tr>
+            <th><label for="fax">FAX</label></th>
+            <td colspan="2" class="fax">
+              <input type="text" id="fax" placeholder="팩스" value="02-2110-0001" disabled class="border_none">
+            </td>
+          </tr>
+          <tr>
+            <th><label for="email">이메일</label></th>
+            <td colspan="2" class="email">
+              <input type="text" id="email" placeholder="이메일" value="02-2110-0001" disabled class="border_none">
+            </td>
+          </tr>
+        </table>
+        <div class="btn_wrap alignC">
+          <button type="button" class="btn btn_blue" onclick="btnEdit()">수정</button>
+          <button type="button" class="btn btn_lightgray">닫기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

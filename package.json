@@ -1,0 +1,31 @@
+{
+  "name": "dm",
+  "version": "1.0.0",
+  "description": "재난관리자원운영관리시스템",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/limyoursun/kcg.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/limyoursun/kcg/issues"
+  },
+  "homepage": "https://github.com/limyoursun/kcg#readme",
+  "devDependencies": {
+    "browser-sync": "^2.27.4",
+    "gulp": "^4.0.2",
+    "gulp-file-include": "^2.3.0"
+  },
+  "dependencies": {
+    "chartjs": "^0.3.24",
+    "chartjs-plugin-doughnutlabel": "^2.0.3",
+    "jqgrid": "^4.6.4",
+    "jquery": "^3.6.0",
+    "jquery-ui": "^1.12.1"
+  }
+}

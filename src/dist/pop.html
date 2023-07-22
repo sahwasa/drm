@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>재난관리자원 운영&middot;관리 시스템</title>
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="../plugins/axicon/axicon.min.css" />
+  <link rel="stylesheet" href="../plugins/jquery-ui/themes/base/jquery-ui.min.css" />
+  <link rel="stylesheet" href="../plugins/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.css">
+  <link rel="stylesheet" href="../plugins/jqueryui-timepicker-addon/dist/jquery.datetimepicker.css">
+  <link rel="stylesheet" href="../plugins/jqGrid/css/ui.jqgrid.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/sub.css">
+  <link rel="stylesheet" href="../css/pop.css">
+
+  <script src="../plugins/jquery/dist/jquery.min.js"></script>
+  <script src="../plugins/jquery-ui/jquery-ui.min.js"></script>
+  <script src="../plugins/jquery-ui/ui/i18n/datepicker-ko.js"></script>
+  <script src="../plugins/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.js"></script>
+  <script src="../plugins/jqueryui-timepicker-addon/dist/jquery.datetimepicker.full.min.js"></script>
+  <script src="../js/Chart.bundle.js"></script>
+  <script src="../plugins/jqGrid/js/jquery.jqGrid.min.js"></script>
+  <script src="../plugins/jqGrid/js/i18n/grid.locale-kr.js"></script>
+  <script src="../js/file_attach.js"></script>
+  <script src="../js/ui_common.js"></script>
+</head>
+
+<body>
+  <!-- Header -->
+<header>
+  <div class="util">
+    <div class="wrap">
+      <b>사용자</b><span>님이 로그인 하셨습니다.</span>
+      <ul class="util_list">
+        <li><button type="button" onclick="btnInfo()">내정보</button></li>
+        <li><button type="button">로그아웃</button></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap flex_wrap f_sb">
+    <h1 class="logo">
+      <a href="main.html">
+        <img src="../images/img_h1_title.png" alt="재난관리자원 운영&middot;관리 시스템">
+      </a>
+    </h1>
+    <ul class="gnb flex_wrap" role="navigation">
+      <li>
+        <a class="on" href="disman01.html">재난관리자원 관리</a>
+        <ul class="sub">
+          <!-- 행안부 사용자 -->
+          <li><a href="disman01.html" class="on">중점관리자원 보유 현황</a></li>
+          <li><a href="disman02.html">중점관리자원 응원 현황</a></li>
+          <!-- 행안부 사용자__e -->
+          <!-- 지자체 사용자 -->
+          <li><a href="disman01.html">지역 중점관리자원</a></li>
+          <li><a href="disman04.html">지역 중점관리자원 응원 요청</a></li>
+          <!-- 지자체 사용자__e -->
+        </ul>
+      </li>
+      <li>
+        <a href="danger01.html">재난위험성 평가조회</a>
+        <ul class="sub">
+          <li><a href="danger01.html">지역별 재난 위험도</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="admin01.html">시스템 관리</a>
+        <ul class="sub">
+          <li><a href="admin01.html">사용자 관리</a></li>
+          <li><a href="admin02.html">공통코드관리</a></li>
+          <li><a href="admin03.html">자원관리</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</header>
+<!-- // Header -->
+
+<!-- 내정보 -->
+
+<!--// 내정보 -->
+
+<!-- 내정보 수정 -->
+
+<!--// 내정보 수정 -->
+
+<script>
+  function btnInfo() {
+    $('.p_cmmn02_1_1').parent('.pop_overlay').toggle();
+  }
+
+  function btnEdit() {
+    $('.p_cmmn02_1_2').parent('.pop_overlay').show();
+  }
+</script>
+  <!-- Contents -->
+  <div class="contents wrap">
+
+    <!-- 회원가입-->
+    <div class="pop_overlay">
+  <div class="pop_wrap p_join">
+    <div class="pop_tit">
+      <h1>회원가입</h1>
+      <button type="button" class="btn_pop_close" closePop></button>
+    </div>
+    <div class="pop_body">
+      <div class="pop_cont">
+        <p class="required_info font_pink alignR">*는 필수값 입니다.</p>
+        <table class="tbl_info">
+          <caption>회원가입</caption>
+          <colgroup>
+            <col style="width:30%;">
+            <col style="width:50%;">
+            <col style="width:20%;">
+          </colgroup>
+          <tr>
+            <th scope="row"><label for="id" class="required">ID</label></th>
+            <td>
+              <input type="text" id="id">
+              <!-- <p class="validity">이미 사용중인 아이디입니다.</p> -->
+            </td>
+            <td><button type="button" class="btn btn_gray">중복</button></td>
+          </tr>
+          <tr>
+            <th><label for="name" class="required">이름</label></th>
+            <td colspan="2"><input type="text" id="name"></td>
+          </tr>
+          <tr>
+            <th><label for="pw" class="required">비밀번호</label></th>
+            <td colspan="2"><input type="password" id="pw"></td>
+          </tr>
+          <tr>
+            <th><label for="pwcheck" class="required">비밀번호 확인</label></th>
+            <td colspan="2">
+              <input type="password" id="pwcheck">
+              <p class="validity font_pink">비밀번호가 일치하지 않습니다.</p>
+            </td>
+          </tr>
+          <tr>
+            <th><label for="division" class="required">소속기관</label></th>
+            <td colspan="2">
+              <select name="division" title="division" style="width:49%;">
+                <option value="시도">시도</option>
+              </select>
+              <select name="division" title="division" style="width:49%;">
+                <option value="시군구">시군구</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th><label for="department" class="required">부서</label></th>
+            <td colspan="2">
+              <input type="text" id="department">
+              <p class="validity font_pink">올바른 부서를 입력하세요.</p>
+            </td>
+          </tr>
+          <tr>
+            <th><label for="position">직급</label></th>
+            <td colspan="2">
+              <input type="text" id="position">
+            </td>
+          </tr>
+          <tr>
+            <th><label for="number">연락처</label></th>
+            <td colspan="2">
+              <input type="text" id="number">
+            </td>
+          </tr>
+          <tr>
+            <th><label for="phonenumber" class="required">휴대폰</label></th>
+            <td colspan="2">
+              <input type="text" id="phonenumber">
+              <p class="validity font_pink">올바른 휴대폰 번호를 입력하세요.</p>
+            </td>
+          </tr>
+          <tr>
+            <th><label for="email" class="required">이메일</label></th>
+            <td colspan="2">
+              <input type="text" id="email">
+            </td>
+          </tr>
+          <tr>
+            <th><label for="fax" class="required">FAX</label></th>
+            <td colspan="2">
+              <input type="text" id="fax">
+            </td>
+          </tr>
+        </table>
+        <div class="btn_wrap alignC">
+          <button type="button" class="btn btn_blue">저장</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <!--// 회원가입-->
+
+    <!-- 내정보 -->
+    <div class="pop_overlay">
+  <div class="pop_wrap p_cmmn02_1_1">
+    <div class="pop_tit">
+      <h1>내정보</h1>
+      <button type="button" class="btn_pop_close" closePop></button>
+    </div>
+    <div class="pop_body">
+      <div class="pop_cont">
+        <table class="tbl_info">
+          <caption>내정보</caption>
+          <colgroup>
+              <col style="width:30%;">
+              <col style="width:55%;">
+              <col style="width:15%;">
+          </colgroup>
+          <tr>
+            <th><label for="id">ID</label></th>
+            <td colspan="2" class="padding_5 alignL">Seoul_guro</td>
+          </tr>
+          <tr>
+            <th scope="row"><label for="pw">비밀번호</label></th>
+            <td><input type="password" id="pw" class="border_none" value="************" disabled></td>
+            <td><button type="button" class="btn_s btn_gray">변경</button></td>
+          </tr>
+          <tr>
+            <th><label for="name">이름</label></th>
+            <td colspan="2"><input type="text" id="name" class="border_none" value="홍길동" disabled></td>
+          </tr>
+          <tr>
+            <th><label for="division">소속기관</label></th>
+            <td colspan="2" class="alignL padding_5">서울특별시 구로구</td>
+          </tr>
+          <tr>
+            <th><label for="team">부서 / 직급</label></th>
+            <td colspan="2">
+              <span class="flex_wrap f_sb input_50">
+                <input type="text" id="team" value="재난자원관리과" disabled class="border_none">
+                <input type="text" id="position" value="주무관" disabled class="border_none">
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <th><label for="number">연락처</label></th>
+            <td colspan="2" class="number">
+              <input type="text" id="number" placeholder="부서전화" value="02-2110-0000" disabled class="border_none">
+            </td>
+          </tr>
+          <tr>
+            <th><label for="phonenumber">휴대폰</label></th>
+            <td colspan="2" class="phonenumber">
+              <input type="text" id="phonenumber" placeholder="휴대폰" value="010-0000-0000" disabled class="border_none">
+            </td>
+          </tr>
+          <tr>
+            <th><label for="fax">FAX</label></th>
+            <td colspan="2" class="fax">
+              <input type="text" id="fax" placeholder="팩스" value="02-2110-0001" disabled class="border_none">
+            </td>
+          </tr>
+          <tr>
+            <th><label for="email">이메일</label></th>
+            <td colspan="2" class="email">
+              <input type="text" id="email" placeholder="이메일" value="02-2110-0001" disabled class="border_none">
+            </td>
+          </tr>
+        </table>
+        <div class="btn_wrap alignC">
+          <button type="button" class="btn btn_blue" onclick="btnEdit()">수정</button>
+          <button type="button" class="btn btn_lightgray">닫기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <!--// 내정보 -->
+
+    <!-- 내정보 수정 -->
+    <div class="pop_overlay">
+  <div class="pop_wrap p_cmmn02_1_2">
+    <div class="pop_tit">
+      <h1>내정보 수정</h1>
+      <button type="button" class="btn_pop_close" closePop></button>
+    </div>
+    <div class="pop_body pop_blur">
+      <div class="pop_cont">
+        <table class="tbl_info">
+          <colgroup>
+              <col style="width:30%;">
+              <col style="width:55%;">
+              <col style="width:15%;">
+          </colgroup>
+          <caption>내정보</caption>
+          <tr>
+            <th><label for="id">ID</label></th>
+            <td colspan="2" class="alignL">admin</td>
+          </tr>
+          <tr>
+            <th scope="row"><label for="pw">비밀번호</label></th>
+            <td><input type="password" id="pw" value="************" disabled></td>
+            <td><button type="button" class="btn_s btn_gray">변경</button></td>
+          </tr>
+          <tr>
+            <th><label for="name">이름</label></th>
+            <td colspan="2"><input type="text" id="name"></td>
+          </tr>
+          <tr>
+            <th><label for="division">소속기관</label></th>
+            <td colspan="2">
+              <span class="flex_wrap f_sb">
+                <select name="division" title="division" style="width:49%;">
+                  <option value="시도">시도</option>
+                </select>
+                <select name="division" title="division" style="width:49%;">
+                  <option value="시군구">시군구</option>
+                </select>
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <th><label for="team">부서 / 직급</label></th>
+            <td colspan="2">
+              <span class="flex_wrap f_sb">
+                <input type="text" id="team" placeholder="부서" style="width:49%;">
+                <input type="text" id="position" placeholder="직급" style="width:49%;">
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <th><label for="number">연락처</label></th>
+            <td colspan="2" class="number">
+              <input type="text" id="number" placeholder="연락처">
+            </td>
+          </tr>
+          <tr>
+            <th><label for="phonenumber">휴대폰</label></th>
+            <td colspan="2" class="phonenumber">
+              <input type="text" id="phonenumber" placeholder="휴대폰">
+            </td>  
+          </tr>
+          <tr>
+            <th><label for="fax">FAX</label></th>
+            <td colspan="2" class="fax">
+              <input type="text" id="fax" placeholder="FAX">
+            </td>
+          </tr>
+          <tr>
+            <th><label for="eamil">이메일</label></th>
+            <td colspan="2" class="eamil">
+              <input type="text" id="eamil" placeholder="이메일">
+            </td>
+          </tr>
+        </table>
+        <div class="btn_wrap alignC">
+          <button type="button" class="btn btn_blue">저장</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <!--// 내정보 수정 -->
+
+    <!-- 비밀번호 변경 -->
+    <div class="pop_overlay">
+  <div class="pop_wrap p_cmmn02_1_3">
+    <div class="pop_tit">
+      <h1>비밀번호 변경</h1>
+      <button type="button" class="btn_pop_close" closePop></button>
+    </div>
+    <div class="pop_body">
+      <div class="pop_cont">
+        <p class="required_info">비밀번호는 6~12자의 영문 소문자와 숫자만 가능합니다.</p>
+        <table class="tbl_info">
+          <caption>비밀번호 변경</caption>
+          <tr>
+            <th scope="row"><label for="pwchange">현재 비밀번호</label></th>
+            <td><input type="password" id="pwchange" style="width:100%"></td>
+          </tr>
+          <tr>
+            <th scope="row"><label for="newpw">새 비밀번호</label></th>
+            <td><input type="password" id="newpw" style="width:100%"></td>
+          </tr>
+          <tr>
+            <th scope="row"><label for="newpwcheck">비밀번호 확인</label></th>
+            <td><input type="password" id="newpwcheck" style="width:100%"></td>
+          </tr>
+        </table>
+        <div class="btn_wrap alignC">
+          <button type="button" class="btn btn_blue">저장</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <!--// 비밀번호 변경 -->
+
+    <!-- 코드 추가 및 수정 -->
+    <div class="pop_overlay">
+  <div class="pop_wrap p_code01">
+    <div class="pop_tit">
+      <h1>코드 수정</h1>
+      <button type="button" class="btn_pop_close" closePop></button>
+    </div>
+    <div class="pop_body">
+      <div class="pop_cont">
+        <table class="tbl_info">
+          <caption>코드 수정</caption>
+          <tr>
+            <th scope="row"><label for="group_code">그룹코드</label></th>
+            <td class="alignL"><span>C00</span></td>
+          </tr>
+          <tr>
+            <th><label for="code">코드</label></th>
+            <td colspan="2"><input type="text" id="code"></td>
+          </tr>
+          <tr>
+            <th><label for="code_name">코드명</label></th>
+            <td colspan="2"><input type="text" id="code_name"></td>
+          </tr>
+          <tr>
+            <th><label for="code_expl">코드 설명</label></th>
+            <td colspan="2"><input type="text" id="code_expl"></td>
+          </tr>
+          <tr>
+            <th><label for="order_number">순번</label></th>
+            <td colspan="2">
+              <select name="order_number" title="order_number">
+                <option value="16">16</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th><label for="usage">사용여부</label></th>
+            <td colspan="2" class="alignL">
+              <span datavalue="on" class="btn_toggle"></span>
+            </td>
+          </tr>
+        </table>
+        <div class="btn_wrap alignC">
+          <button type="button" class="btn btn_blue">저장</button>
+          <button type="button" class="btn btn_gray">닫기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="pop_overlay">
+  <div class="pop_wrap p_code01">
+    <div class="pop_tit">
+      <h1>코드 그룹수정</h1>
+      <button type="button" class="btn_pop_close" closePop></button>
+    </div>
+    <div class="pop_body">
+      <div class="pop_cont">
+        <table class="tbl_info">
+          <caption>코드 그룹수정</caption>
+          <tr>
+            <th scope="row"><label for="code">상위 그룹코드</label></th>
+            <td class="alignL"><span>C00</span></td>
+          </tr>
+          <tr>
+            <th><label for="group_code">그룹코드</label></th>
+            <td colspan="2"><input type="text" id="group_code"></td>
+          </tr>
+          <tr>
+            <th><label for="group_code_name">그룹코드명</label></th>
+            <td colspan="2"><input type="text" id="group_code_name"></td>
+          </tr>
+          <tr>
+            <th><label for="code_expl">코드 설명</label></th>
+            <td colspan="2"><input type="text" id="code_expl"></td>
+          </tr>
+          <tr>
+            <th><label for="order_number">순번</label></th>
+            <td colspan="2">
+              <select name="order_number">
+                <option value="16">16</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th><label for="usage">사용여부</label></th>
+            <td colspan="2" class="alignL">
+              <span datavalue="on" class="btn_toggle"></span>
+            </td>
+          </tr>
+        </table>
+        <div class="btn_wrap alignC">
+          <button type="button" class="btn btn_blue">저장</button>
+          <button type="button" class="btn btn_gray">닫기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <!--// 코드 추가 및 수정 -->
+
+    <!-- 사용자 상세 수정 -->
+    <div class="pop_overlay">
+  <div class="pop_wrap p_admin01_2">
+    <div class="pop_tit">
+      <h1>사용자 추가</h1>
+      <button type="button" class="btn_pop_close" closePop></button>
+    </div>
+    <div class="pop_body">
+      <div class="pop_cont">
+        <table class="tbl_info">
+          <caption>내정보</caption>
+          <colgroup>
+              <col style="width:30%;">
+              <col style="width:55%;">
+              <col style="width:15%;">
+          </colgroup>
+          <tr>
+            <th><label for="id">ID</label></th>
+            <td colspan="2" class="padding_5 alignL">Seoul_guro</td>
+          </tr>
+          <tr>
+            <th><label for="name">이름</label></th>
+            <td colspan="2"><input type="text" id="name" class="border_none" value="홍길동" disabled></td>
+          </tr>
+          <tr>
+            <th scope="row"><label for="pw">비밀번호</label></th>
+            <td colspan="2"><input type="password" id="pw" class="border_none" value="************" disabled></td>
+          </tr>
+          <tr>
+            <th><label for="division">소속기관</label></th>
+            <td colspan="2" class="alignL">
+              <input type="text" id="division" class="border_none" value="서울특별시 구로구" disabled>
+            </td>
+          </tr>
+          <tr>
+            <th><label for="team">부서 / 직급</label></th>
+            <td colspan="2">
+              <span class="flex_wrap f_sb input_50">
+                <input type="text" id="team" value="재난자원관리과" disabled class="border_none">
+                <input type="text" id="position" value="주무관" disabled class="border_none">
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <th><label for="number">연락처</label></th>
+            <td colspan="2" class="number">
+              <input type="text" id="number" placeholder="부서전화" value="02-2110-0000" disabled class="border_none">
+            </td>
+          </tr>
+          <tr>
+            <th><label for="phonenumber">휴대폰</label></th>
+            <td colspan="2" class="phonenumber">
+              <input type="text" id="phonenumber" placeholder="휴대폰" value="010-0000-0000" disabled class="border_none">
+            </td>
+          </tr>
+          <tr>
+            <th><label for="fax">FAX</label></th>
+            <td colspan="2" class="fax">
+              <input type="text" id="fax" placeholder="팩스" value="02-2110-0001" disabled class="border_none">
+            </td>
+          </tr>
+          <tr>
+            <th><label for="email">이메일</label></th>
+            <td colspan="2" class="email">
+              <input type="text" id="email" placeholder="이메일" value="02-2110-0001" disabled class="border_none">
+            </td>
+          </tr>
+          <tr>
+            <th><label for="usage">사용여부</label></th>
+            <td colspan="2" class="usage">
+              <input type="text" id="usage" value="사용" disabled class="border_none">
+            </td>
+          </tr>
+          <tr>
+            <th><label for="approval">승인여부</label></th>
+            <td colspan="2" class="approval">
+              <input type="text" id="usage" value="승인" disabled class="border_none">
+            </td>
+          </tr>
+        </table>
+        <div class="btn_wrap alignC">
+          <button type="button" class="btn btn_blue">저장</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <!--// 사용자 상세 수정 -->
+
+    <!-- 사용자 상세 -->
+    <div class="pop_overlay">
+  <div class="pop_wrap p_admin01_1">
+    <div class="pop_tit">
+      <h1>사용자 상세</h1>
+      <button type="button" class="btn_pop_close" closePop></button>
+    </div>
+    <div class="pop_body pop_blur">
+      <div class="pop_cont">
+        <table class="tbl_info">
+          <colgroup>
+              <col style="width:30%;">
+              <col style="width:55%;">
+              <col style="width:15%;">
+          </colgroup>
+          <caption>내정보</caption>
+          <tr>
+            <th><label for="id">ID</label></th>
+            <td colspan="2" class="alignL">admin</td>
+          </tr>
+          <tr>
+            <th><label for="name">이름</label></th>
+            <td colspan="2"><input type="text" id="name"></td>
+          </tr>
+          <tr>
+            <th scope="row"><label for="pw">비밀번호</label></th>
+            <td colspan="2"><input type="password" id="pw" value="************"></td>
+          </tr>
+          <tr>
+            <th><label for="division">소속기관</label></th>
+            <td colspan="2">
+              <span class="flex_wrap f_sb">
+                <select name="division" title="division" style="width:49%;">
+                  <option value="시도">시도</option>
+                </select>
+                <select name="division" title="division" style="width:49%;">
+                  <option value="시군구">시군구</option>
+                </select>
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <th><label for="team">부서 / 직급</label></th>
+            <td colspan="2">
+              <span class="flex_wrap f_sb">
+                <input type="text" id="team" placeholder="부서" style="width:49%;">
+                <input type="text" id="position" placeholder="직급" style="width:49%;">
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <th><label for="number">연락처</label></th>
+            <td colspan="2" class="number">
+              <input type="text" id="number" placeholder="연락처">
+            </td>
+          </tr>
+          <tr>
+            <th><label for="phonenumber">휴대폰</label></th>
+            <td colspan="2" class="phonenumber">
+              <input type="text" id="phonenumber" placeholder="휴대폰">
+            </td>  
+          </tr>
+          <tr>
+            <th><label for="fax">FAX</label></th>
+            <td colspan="2" class="fax">
+              <input type="text" id="fax" placeholder="FAX">
+            </td>
+          </tr>
+          <tr>
+            <th><label for="eamil">이메일</label></th>
+            <td colspan="2" class="eamil">
+              <input type="text" id="eamil" placeholder="이메일">
+            </td>
+          </tr>
+          <tr>
+            <th><label for="usage">사용여부</label></th>
+            <td colspan="2" class="usage">
+              <select name="사용여부" id="usage">
+                <option value="선택">선택</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th><label for="approval">승인여부</label></th>
+            <td colspan="2" class="approval">
+              <select name="승인여부" id="approval">
+                <option value="선택">선택</option>
+              </select>
+            </td>
+          </tr>
+        </table>
+        <div class="btn_wrap alignC">
+          <button type="button" class="btn btn_blue">수정</button>
+          <button type="button" class="btn btn_blue">저장</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <!--// 사용자 상세 -->
+
+    <!-- 사용자 상세 -->
+    <div class="pop_overlay">
+  <div class="pop_wrap p_admin01_0">
+    <div class="pop_tit">
+      <h1>사용자 추가</h1>
+      <button type="button" class="btn_pop_close" closePop></button>
+    </div>
+    <div class="pop_body pop_blur">
+      <div class="pop_cont">
+        <table class="tbl_info">
+          <colgroup>
+              <col style="width:30%;">
+              <col style="width:55%;">
+              <col style="width:15%;">
+          </colgroup>
+          <caption>내정보</caption>
+          <tr>
+            <th><label for="id">ID</label></th>
+            <td colspan="2"><input type="text" id="id"></td>
+          </tr>
+          <tr>
+            <th><label for="name">이름</label></th>
+            <td colspan="2"><input type="text" id="name"></td>
+          </tr>
+          <tr>
+            <th scope="row"><label for="pw">비밀번호</label></th>
+            <td colspan="2"><input type="password" id="pw"></td>
+          </tr>
+          <tr>
+            <th><label for="division">소속기관</label></th>
+            <td colspan="2">
+              <span class="flex_wrap f_sb">
+                <select name="division" title="division" style="width:49%;">
+                  <option value="시도">시도</option>
+                </select>
+                <select name="division" title="division" style="width:49%;">
+                  <option value="시군구">시군구</option>
+                </select>
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <th><label for="team">부서 / 직급</label></th>
+            <td colspan="2">
+              <span class="flex_wrap f_sb">
+                <input type="text" id="team" placeholder="부서" style="width:49%;">
+                <input type="text" id="position" placeholder="직급" style="width:49%;">
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <th><label for="number">연락처</label></th>
+            <td colspan="2" class="number">
+              <input type="text" id="number" placeholder="연락처">
+            </td>
+          </tr>
+          <tr>
+            <th><label for="phonenumber">휴대폰</label></th>
+            <td colspan="2" class="phonenumber">
+              <input type="text" id="phonenumber" placeholder="휴대폰">
+            </td>  
+          </tr>
+          <tr>
+            <th><label for="fax">FAX</label></th>
+            <td colspan="2" class="fax">
+              <input type="text" id="fax" placeholder="FAX">
+            </td>
+          </tr>
+          <tr>
+            <th><label for="eamil">이메일</label></th>
+            <td colspan="2" class="eamil">
+              <input type="text" id="eamil" placeholder="이메일">
+            </td>
+          </tr>
+          <tr>
+            <th><label for="usage">사용여부</label></th>
+            <td colspan="2" class="usage">
+              <select name="사용여부" id="usage">
+                <option value="선택">선택</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th><label for="approval">승인여부</label></th>
+            <td colspan="2" class="approval">
+              <select name="승인여부" id="approval">
+                <option value="선택">선택</option>
+              </select>
+            </td>
+          </tr>
+        </table>
+        <div class="btn_wrap alignC">
+          <button type="button" class="btn btn_blue">수정</button>
+          <button type="button" class="btn btn_blue">저장</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <!--// 사용자 상세 -->
+
+    <!-- 재난관리자원 응원처리 -->
+    <div class="pop_overlay">
+  <div class="pop_wrap p_disman p_disman01_1">
+    <div class="pop_tit">
+      <h1>재난관리자원 응원요청</h1>
+      <button type="button" class="btn_pop_close" closePop></button>
+    </div>
+    <div class="pop_body pop_blur">
+      <div class="request_wrap">
+        <i class="axi axi-ion-checkmark font_navy"></i>
+        <span class="font_navy font_b">응원가능</span>
+      </div>
+      <div class="pop_cont">
+        <table class="tbl_row">
+          <colgroup>
+              <col style="width:15%;">
+              <col style="width:30%;">
+              <col style="width:15%;">
+              <col style="width:30%;">
+          </colgroup>
+          <caption>재난관리자원 응원요청</caption>
+          <tr>
+            <th><label for="type">재난유형</label></th>
+            <td>호우</td>
+            <th><label for="sort">분류</label></th>
+            <td>장비</td>
+          </tr>
+          <tr>
+            <th><label for="number">물품분류번호</label></th>
+            <td>40151513</td>
+            <th><label for="name">자원명</label></th>
+            <td>펌프</td>
+          </tr>
+          <tr>
+            <th><label for="number2">세부품목번호</label></th>
+            <td>12341234</td>
+            <th><label for="name2">세부품명</label></th>
+            <td>수중펌프</td>
+          </tr>
+          <tr>
+            <th><label for="quantity1">응원가능량</label></th>
+            <td>43</td>
+            <th><label for="quantity2">요청수량</label></th>
+            <td>
+              <input type="number" id="quantity2">
+            </td>
+          </tr>
+          <tr>
+            <th><label for="institution">담당 기관</label></th>
+            <td>서울특별시 종로</td>
+            <th><label for="institution2">담당자</label></th>
+            <td>사용자</td>
+          </tr>
+          <tr>
+            <th><label for="number3">담당자 연락처</label></th>
+            <td>00-000-0000</td>
+            <th><label for="email">담당자 이메일</label></th>
+            <td>email@email.go.kr</td>
+          </tr>
+        </table>
+        <div class="btn_wrap alignC">
+          <button type="button" class="btn btn_blue" onclick="btnAlert()">응원 요청</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <!--// 재난관리자원 응원처리 -->
+
+    <!-- 230720 추가-->
+    <div class="pop_overlay">
+  <div class="pop_wrap p_alert">
+    <div class="pop_tit">
+      <h1>비교 분석 지원</h1>
+      <button type="button" class="btn_pop_close" closePop></button>
+    </div>
+    <div class="pop_body">
+      <p class="alert_txt">‘종로구’와 ‘성북구’의 ‘태풍’ <em class="font_orange">재난 위험성 평가 등급 관련</em> 비교 정보를 제공합니다.<br />아래 버튼에서 비교할 정보를 선택하세요.
+      </p>
+    </div>
+    <div class="btn_wrap">
+      <button type="button" class="btn btn_blue">등급 산정 지표</button>
+      <button type="button" class="btn btn_blue">재난 자원 보유량</button>
+      <button type="button" class="btn btn_gray">취소</button>
+    </div>
+  </div>
+</div>
+    <div class="pop_overlay">
+  <div class="pop_wrap p_alert p_ico p_question">
+    <div class="pop_tit">
+      <h1>자원 현행화</h1>
+      <button type="button" class="btn_pop_close" closePop></button>
+    </div>
+    <div class="pop_body">
+      <p class="alert_txt">
+        중점재난자원 재고 현행화를 위하여 현행화 문서를 불러 오시겠습니까?
+      </p>
+    </div>
+    <div class="btn_wrap">
+      <button type="button" class="btn btn_blue">확인</button>
+      <button type="button" class="btn btn_gray">취소</button>
+    </div>
+  </div>
+</div>
+    <div class="pop_overlay">
+  <div class="pop_wrap p_alert p_ico p_error">
+    <div class="pop_tit">
+      <h1>오류</h1>
+      <button type="button" class="btn_pop_close" closePop></button>
+    </div>
+    <div class="pop_body">
+      <p class="alert_txt">
+        응원요청은 1개 이상의 수량부터 가능합니다.
+      </p>
+    </div>
+    <div class="btn_wrap">
+      <button type="button" class="btn btn_gray">닫기</button>
+    </div>
+  </div>
+</div>
+    <div class="pop_overlay">
+  <div class="pop_wrap p_alert p_ico p_info">
+    <div class="pop_tit">
+      <h1>자원 현행화</h1>
+      <button type="button" class="btn_pop_close" closePop></button>
+    </div>
+    <div class="pop_body">
+      <p class="alert_txt">
+        중점 재난자원 재고 현행화를 수행을 계속하시겠습니까?
+        작업 후에는 복구가 불가능 합니다.
+      </p>
+    </div>
+    <div class="btn_wrap">
+      <button type="button" class="btn btn_blue">확인</button>
+      <button type="button" class="btn btn_gray">닫기</button>
+    </div>
+  </div>
+</div>
+
+  </div>
+  <!-- // Contents -->
+  <!-- Footer -->
+<div class="footer">
+  <copy>Copyright &copy; 2023. All rights reserved.</copy>
+</div>
+<!-- // Footer -->
+
+</body>
+
+</html>

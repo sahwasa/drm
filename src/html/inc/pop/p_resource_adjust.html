@@ -1,0 +1,72 @@
+<div class="pop_overlay">
+  <div class="pop_wrap p_resource_adjust">
+    <div class="pop_tit">
+      <h1>재난자원 적정보유량</h1>
+      <button type="button" class="btn_pop_close" data-btn_type="closePop"></button>
+    </div>
+    <div class="pop_body pop_blur">
+      <div class="pop_cont">
+        <div class="tbl_wrap">
+          <table id="resource" class="jq-grid"></table>
+          <div id="pager"></div>
+        </div>
+        <div class="btn_wrap alignC">
+          <button type="button" class="btn btn_blue" onclick="btnAlert()">적용</button>
+          <button type="button" class="btn btn_gray" onclick="">취소</button>
+        </div>
+      </div>       
+    </div>
+  </div>
+</div>
+<script>
+  var mydata1 = [
+    { 't1': '자연재난', 't2': '태풍', 't3': '수중펌프', 't4': '1000 이상 kW ', 't5': '대', 't6': '장비', 't7': 'A', 't8': '84', 't9': '29', 't10': '3', attr: {t1: {rowspan: "3"}, t2:{rowspan:"3"}} },
+    { 't1': '자연재난', 't2': '태풍', 't3': '수중인라인펌프', 't4': '1000 이상 kW ', 't5': '대', 't6': '장비', 't7': 'A', 't8': '84', 't9': '29', 't10': '3',attr: {t1: {display: "none"}, t2: {display: "none"}}},
+    { 't1': '자연재난', 't2': '태풍', 't3': '엔진펌프', 't4': '1000 이상 kW ', 't5': '대', 't6': '장비', 't7': 'A', 't8': '84', 't9': '29', 't10': '3', attr: {t1: {display: "none"}, t2: {display: "none"}}}
+  ],
+  arrtSetting = function (rowId, val, rawObject, cm) {
+    var attr = rawObject.attr[cm.name], result;
+    if (attr.rowspan) {
+        result = `rowspan='${attr.rowspan}'`;
+    } else if (attr.display) {
+        result = `style="display:${attr.display}"`;
+    }
+    return result;
+  };
+
+  
+  $("#resource").jqGrid({
+    data: mydata1,
+    datatype: "local",
+    useColSpanStyle: true,
+    groupHeaders:[
+      {startColumnName:'t1',numberofColumns:2,titleText:'재난구분'}
+    ],
+    colNames: ['재난 대분류','재난 중분류','자원명','규격','단위','자원 구분','재난관리자원등급','보유 현황', '갱신 수량','변경수량'],
+    colModel: [
+      { name: 't1', cellattr: arrtSetting},
+      { name: 't2', cellattr: arrtSetting},
+      { name: 't3' },
+      { name: 't4' },
+      { name: 't5' },
+      { name: 't6' },
+      { name: 't7' },
+      { name: 't8' },
+      { name: 't9' },
+      { name: 't10' }
+    ],
+    height: 'auto',  
+    rownumbers: true,
+    viewrecords: true,
+    rowTotal: -1,
+    rowNum: 10,
+    autowidth: true,
+    pager: "#pager",
+  });
+  function axiBtn(cellValue, options, rowdata, action){
+  var html, txt = "";
+  var type = options.colModel.icotype;
+  html = `<button type="button" class="axi btn_${type}" title="자원정보 설정">${cellValue}</button>`;
+  return html;
+  } 
+</script> 
