@@ -1,46 +1,120 @@
 <div class="section">
   <div class="tbl_top tit_h3">
-    <h3>사회재난 위해성 평가</h3>
+    <h3>사회재난 노출성 평가</h3>
   </div>
   <div class="tbl_wrap">
-    <table class="tbl_com tbl_factor">
+    <table class="tbl_factor">
       <thead>
         <tr>
-          <th scope="col" >지수</th>
-          <th scope="col">위해성 평가 방법(20년 기준)</th>
+          <th scope="col" rowspan="2">지수</th>
+          <th scope="col" colspan="3">노출성 평가 방법(20년 기준)</th>
+        </tr>
+        <tr>
+          <th scope="col">사망실종자(명)</th>
+          <th scope="col">부상자(명)</th>
+          <th scope="col">물적피해(명)</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>1</td>
-          <td>발생건수  =  0</td>
+          <th scope="row">1</th>
+          <td>사망실종자 ≤ 0</td>
+          <td>부상자 ≤ 0</td>
+          <td>재산피해 ≤ 0</td>
         </tr>
         <tr>
-          <td>2</td>
-          <td>0  ＜  발생건수  ≤  1</td>
+          <th scope="row">2</th>
+          <td>0 ＜사망실종자 ≤ 1</td>
+          <td>0 ＜부상자 ≤ 1</td>
+          <td>0 ＜재산피해 ≤ 1</td>
         </tr>
         <tr>
-          <td>3</td>
-          <td>1  ＜  발생건수  ≤  2</td>
+          <th scope="row">3</th>
+          <td>1 ＜사망실종자 ≤ 5</td>
+          <td>1 ＜부상자 ≤ 10</td>
+          <td>1 ＜재산피해 ≤ 2</td>
         </tr>
         <tr>
-          <td>4</td>
-          <td>2  ＜  발생건수  ≤  3</td>
+          <th scope="row">4</th>
+          <td>5 ＜사망실종자 ≤ 10</td>
+          <td>10 ＜부상자 ≤ 30</td>
+          <td>2 ＜재산피해 ≤ 20</td>
         </tr>
         <tr>
-          <td>5</td>
-          <td>3 ＜ 발생건수</td>
+          <th scope="row">5</th>
+          <td>10 ＜사망실종자</td>
+          <td>30 ＜부상자</td>
+          <td>20 ＜재산피해</td>
         </tr>
       </tbody>
     </table>
   </div>
-  <div class="info"></div>
+  <div class="factor_info">
+    <ul class="info_lst">
+      <li>지자체별/재난별 <strong>재난발생횟수, 사망자수, 부상자수, 재산피해</strong> 산출 (1997~2016, 20년)</li>
+      <li><strong>지자체별 지역코드</strong>로 구분 (인구규모, 산업입지, 산업특성)</li>
+      <li>산출된 값을 지수화 (노출성은 <strong>사망자수/부상자수/재산피해</strong> 활용)</li>
+      <li><strong>노출성 = $\left\{ \right.(사망자수\times 0.25) + (부상자수\times 0.25)\left. \right \} / (재산피해\times0.5)$</strong></li>
+    </ul>
+  </div>
 </div>
 <div class="section">
   <div class="tbl_top tit_h3">
-    <h3>자연재난 위해성 평가</h3>
+    <h3>자연재난 노출성 평가</h3>
   </div>
   <div class="tbl_wrap">
+    <table class="tbl_factor">
+      <thead>
+        <tr>
+          <th scope="col" rowspan="2">지수</th>
+          <th scope="col" colspan="3">노출성 평가 방법(20년 기준)</th>
+        </tr>
+        <tr>
+          <th scope="col">사망실종자(명)</th>
+          <th scope="col">부상자(명)</th>
+          <th scope="col">물적피해(명)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>사망실종자 ≤ 0</td>
+          <td>부상자 ≤ 1</td>
+          <td>재산피해 ≤ 1</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>0 ＜사망실종자 ≤ 1</td>
+          <td>1 ＜부상자 ≤ 25</td>
+          <td>1 ＜재산피해 ≤ 4</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>1 ＜사망실종자 ≤ 3</td>
+          <td>25 ＜부상자 ≤ 130</td>
+          <td>4 ＜재산피해 ≤ 40</td>
+        </tr>
+        <tr>
+          <th scope="row">4</th>
+          <td>3 ＜사망실종자 ≤ 6</td>
+          <td>130 ＜부상자 ≤ 600</td>
+          <td>40 ＜재산피해 ≤ 200</td>
+        </tr>
+        <tr>
+          <th scope="row">5</th>
+          <td>6 ＜사망실종자</td>
+          <td>600 ＜부상자</td>
+          <td>200 ＜재산피해</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <div class="info"></div>
+  <div class="factor_info">
+    <ul class="info_lst">
+      <li>지자체별/재난별 <strong>인명피해(이재민, 사망∙실종), 재산피해, 발생횟수</strong> 산출 (1997~2016, 20년)</li>
+      <li><strong>지자체별 지역코드</strong>로 구분 (인구규모, 산업입지, 산업특성)</li>
+      <li>산출된 값을 지수화 (노출성은 <strong>이재민수/사망∙실종자 수/재산피해</strong> 활용)</li>
+      <li><strong>노출성 = $\left\{ \right.(이재민수\times 0.25) + (사망∙실종자 수\times 0.25)\left. \right \} / (재산피해\times0.5)$</strong></li>
+    </ul>
+  </div>
 </div>

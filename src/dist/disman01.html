@@ -25,6 +25,14 @@
   <script src="../plugins/jqGrid/js/i18n/grid.locale-kr.js"></script>
   <script src="../js/file_attach.js"></script>
   <script src="../js/ui_common.js"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({            
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}            
+    });
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 </head>
 
 <body>
@@ -598,6 +606,28 @@ $('#grid_resource').jqGrid({
           <button type="button" class="btn btn_gray">취소</button>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+  <!--// 재난관리자원 응원처리 경고 -->
+  <!-- 재난관리자원 응원처리 경고 -->
+  <div class="pop_overlay">
+  <div class="pop_wrap p_alert p_ico p_question">
+    <div class="pop_tit">
+      <h1>자원 현행화</h1>
+      <button type="button" class="btn_pop_close" closePop></button>
+    </div>
+    <div class="pop_body">
+      <p class="alert_txt">
+        중점재난자원 재고 현행화를 위하여 현행화 문서를 불러 오시겠습니까?
+      </p>
+    </div>
+    <div class="btn_wrap">
+     <label for="file">
+        <div class="btn-upload btn btn_blue">확인</div>
+      </label>
+      <input type="file" name="file" id="" class="custom_file">
+      <button type="button" class="btn btn_gray">취소</button>
     </div>
   </div>
 </div>

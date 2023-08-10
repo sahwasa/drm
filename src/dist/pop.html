@@ -25,6 +25,14 @@
   <script src="../plugins/jqGrid/js/i18n/grid.locale-kr.js"></script>
   <script src="../js/file_attach.js"></script>
   <script src="../js/ui_common.js"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({            
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}            
+    });
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 </head>
 
 <body>
@@ -884,7 +892,10 @@
       </p>
     </div>
     <div class="btn_wrap">
-      <button type="button" class="btn btn_blue">확인</button>
+     <label for="file">
+        <div class="btn-upload btn btn_blue">확인</div>
+      </label>
+      <input type="file" name="file" id="" class="custom_file">
       <button type="button" class="btn btn_gray">취소</button>
     </div>
   </div>

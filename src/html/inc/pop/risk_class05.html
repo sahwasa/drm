@@ -1,46 +1,108 @@
 <div class="section">
   <div class="tbl_top tit_h3">
-    <h3>사회재난 위해성 평가</h3>
+    <h3>위험성평가방법</h3>
+  </div>
+  <p class="math">$위험성=\frac{위해성\times 노출성\times (1+저감성)}{(1+저감성)}$</p>
+</div>
+<div class="section">
+  <div class="tbl_top tit_h3">
+    <h3>위험성 평가(표준화) 도출</h3>
+  </div>
+  <div class="factor_info">
+    <ul class="info_lst">
+      <li>도출된 평가결과 표준화 : (위험성 평가 결과값 – 최소값) / (최대값 – 최소값)</li>
+    </ul>
   </div>
   <div class="tbl_wrap">
-    <table class="tbl_com tbl_factor">
+    <table class="tbl_factor">
+      <caption>위험성 평가(표준화)</caption>
+      <colgroup>
+        <col><col width="25%" span="3">
+      </colgroup>
       <thead>
         <tr>
-          <th scope="col" >지수</th>
-          <th scope="col">위해성 평가 방법(20년 기준)</th>
+          <th scope="col" >&nbsp;</th>
+          <th scope="col">MAX</th>
+          <th scope="col">MIN</th>
+          <th scope="col">MAX-MIN</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>1</td>
-          <td>발생건수  =  0</td>
+          <th scope="row">태풍</th>
+          <td>25.00</td>
+          <td>0.88</td>
+          <td>24.12</td>
         </tr>
         <tr>
-          <td>2</td>
-          <td>0  ＜  발생건수  ≤  1</td>
+          <th scope="row">호우</th>
+          <td>24.63</td>
+          <td>0.77</td>
+          <td>23.86</td>
         </tr>
         <tr>
-          <td>3</td>
-          <td>1  ＜  발생건수  ≤  2</td>
+          <th scope="row">대설</th>
+          <td>16.28</td>
+          <td>0.76</td>
+          <td>15.53</td>
         </tr>
         <tr>
-          <td>4</td>
-          <td>2  ＜  발생건수  ≤  3</td>
+          <th scope="row">강풍</th>
+          <td>6.33</td>
+          <td>0.69</td>
+          <td>5.63</td>
         </tr>
         <tr>
-          <td>5</td>
-          <td>3 ＜ 발생건수</td>
+          <th scope="row">풍랑</th>
+          <td>6.47</td>
+          <td>0.76</td>
+          <td>5.71</td>
+        </tr>
+        <tr>
+          <th scope="row">풍수해</th>
+          <td>12.93</td>
+          <td>1.44</td>
+          <td>11.48</td>
         </tr>
       </tbody>
     </table>
   </div>
-  <div class="info"></div>
 </div>
 <div class="section">
   <div class="tbl_top tit_h3">
-    <h3>자연재난 위해성 평가</h3>
+    <h3>위험성평가 등급 도출</h3>
+  </div>
+  <div class="factor_info">
+    <ul class="info_lst">
+      <li>도출된 평가결과 표준화 : (위험성 평가 결과값 – 최소값) / (최대값 – 최소값)</li>
+    </ul>
   </div>
   <div class="tbl_wrap">
+    <table class="tbl_factor">
+      <caption>위험성평가 등급 도출</caption>
+      <colgroup>
+        <col><col width="15%" span="5">
+      </colgroup>
+      <thead>
+        <tr>
+          <th scope="col">평가 등급</th>
+          <th scope="col">1등급</th>
+          <th scope="col">2등급</th>
+          <th scope="col">3등급</th>
+          <th scope="col">4등급</th>
+          <th scope="col">5등급</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">표준화 수치(초과~이하)</th>
+          <td>0~0.2</td>
+          <td>0.2~0.4</td>
+          <td>0.4~0.6</td>
+          <td>0.6~0.8</td>
+          <td>0.8~</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <div class="info"></div>
 </div>

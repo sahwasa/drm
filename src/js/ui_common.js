@@ -110,6 +110,26 @@ $(function () {
   $('select').on('change',function(){
     $(this).css('color','inherit');
   });
+
+  //toggle_evt
+$('[data-toggle]').on('click',function(e){
+  var status = 'on';
+ if(e.target.dataset.toggle !== undefined) var tglTxt = e.target.dataset.toggle.split(',');
+  if($(this).hasClass(status)){
+    $(this).removeClass('on')
+    if (tglTxt) $(this).find('span').html(tglTxt[0]);
+  }
+  else{
+    $(this).addClass('on').find('span');
+    if (tglTxt) $(this).find('span').html(tglTxt[1]);
+  };
+})
+$('[data-dtl]').on('click',function(e){
+  var target = e.target.dataset.dtl;
+  $(`.${target}`).slideToggle();
+})
+
+
 })
 function rangeEvt(el){
   var rel = el.prop('id');
@@ -130,3 +150,4 @@ const handleSelect = function (item) {
   result.parent().removeClass('active');
   console.log(resultVal);
 }
+

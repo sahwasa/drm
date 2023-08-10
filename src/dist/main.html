@@ -25,6 +25,14 @@
   <script src="../plugins/jqGrid/js/i18n/grid.locale-kr.js"></script>
   <script src="../js/file_attach.js"></script>
   <script src="../js/ui_common.js"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({            
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}            
+    });
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 </head>
 
 <body>
@@ -123,16 +131,74 @@
   <copy>Copyright &copy; 2023. All rights reserved.</copy>
 </div>
 <!-- // Footer -->
+  <ul class="toast_lst">
+  <li class="apply"><a href="">
+    <em>[응원요청]</em>
+    <p>ㅇㅇ자원 응원 요청이 등록되었습니다.</p>
+    <span class="time">12:34:54 </span>
+  </a>
+  <button type="button" class="close">닫기</button>
+  </li>
+  <li class="cancel"><a href="">
+    <em>[응원취소]</em>
+    <p>ㅇㅇ자원 응원 요청이 취소되었습니다.</p>
+    <span class="time">12:34:54 </span>
+  </a>
+  <button type="button" class="close">닫기</button>
+  </li>
+  <li class="accept"><a href="">
+    <em>[응원승인]</em>
+    <p>ㅇㅇ자원 응원 요청이 승인되었습니다.</p>
+    <span class="time">12:34:54 </span>
+  </a>
+  <button type="button" class="close">닫기</button>
+  </li>
+  <li class="reject"><a href="">
+    <em>[응원거절]</em>
+    <p>ㅇㅇ자원 응원 요청이 거절되었습니다.</p>
+    <span class="time">12:34:54 </span>
+  </a>
+  <button type="button" class="close">닫기</button>
+  </li>
+</ul>
+  <div class="pop_overlay">
+  <div class="pop_wrap p_actualization">
+    <div class="pop_tit">
+      <h1>현행화의 날</h1>
+      <button type="button" class="btn_pop_close" data-btn_type="closePop"></button>
+    </div>
+    <div class="pop_body">
+      <ul class="info_lst">
+        <li>현행화의 날이 
+        N일 남았습니다. 요청/응원 자원을 확인 후 현행화 해주시기 바랍니다.</li>
+      </ul>
+      <div class="actual_lst">
+        <dl>
+          <dt>요청자원</dt>
+          <dd>자원1 50개</dd>
+          <dd>자원2 50개</dd>
+          <dd>자원3 50개</dd>
+          <dd>자원4 50개</dd>
+          <dd>자원5 50개</dd>
+        </dl>
+        <dl>
+          <dt>응원자원</dt>
+          <dd>자원1 50개</dd>
+          <dd>자원2 50개</dd>
+          <dd>자원3 50개</dd>
+          <dd>자원4 50개</dd>
+          <dd>자원5 50개</dd>
+        </dl>
+      </div>
+      <div class="btn_wrap alignC">
+        <button type="button" class="btn btn_blue">현행화의 날 바로가기</button>
+      </div>
+    </div>
+    <div class="pop_foot">
+      <label for=""><input type="checkbox"> 오늘하루 열지 않기</label>
+    </div>    
+  </div>
+</div>
 
 </body>
-
-<script>
-  $('#btnPopVirus').on('click', function () {
-    $('#popVirus').show();
-  })
-  $('#btnPopFever').on('click', function () {
-    $('#popFever').show();
-  })
-</script>
-
 </html>

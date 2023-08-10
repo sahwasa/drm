@@ -1,46 +1,38 @@
 <div class="section">
   <div class="tbl_top tit_h3">
-    <h3>사회재난 위해성 평가</h3>
+    <h3>사회재난 저감성 평가</h3>
   </div>
-  <div class="tbl_wrap">
-    <table class="tbl_com tbl_factor">
-      <thead>
-        <tr>
-          <th scope="col" >지수</th>
-          <th scope="col">위해성 평가 방법(20년 기준)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>발생건수  =  0</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>0  ＜  발생건수  ≤  1</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>1  ＜  발생건수  ≤  2</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>2  ＜  발생건수  ≤  3</td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td>3 ＜ 발생건수</td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="factor_info">
+    <ul class="info_lst">
+      <li>저감성 지표코드 (24개, SV1~36) 데이터 수집
+        <p class="dtl_info">재난별로 활용되는 지표코드 상이</p>
+        <dl>
+          <dt>ex）저감성화재 : </dt>
+          <dd>의사 수(SR16), 의료인력 수(SR16), 특수의료장비 현황(SR17), 의료기관 수(SR14), 공무원 수_정원(SR5), 구조구급대원 수(SR7), 소방공무원 수(SR9)</dd>
+        </dl>
+      </li>
+      <li>저감성 지표 data : 지자체별로 지표코드 raw data 값 정리</li>
+      <li>저감성 mapping (표준화) : (저감성지표 data값 – 최소값) / (최대값 – 최소값)</li>
+      <li>저감성 (요인분석지표) : 재난별 저감성 mapping 결과값 평균</li>
+    </ul>
   </div>
-  <div class="info"></div>
 </div>
 <div class="section">
   <div class="tbl_top tit_h3">
-    <h3>자연재난 위해성 평가</h3>
+    <h3>자연재난 저감성 평가</h3>
   </div>
-  <div class="tbl_wrap">
+  <div class="factor_info">
+    <ul class="info_lst">
+      <li>저감성 지표명 (15개) 데이터 수집
+        <p class="dtl_info">재난별로 활용되는 지표명 상이</p>
+        <dl>
+          <dt>ex）저감성 태풍/호우/강풍 : </dt>
+          <dd>의료인력 수, 의사 수, 특수의료장비현황, 의료기관 수, 구조구급대원 수, 공무원 수(정원), 소방공무원 수, 내수침수 재해 행정관리능력, 하천재해 행정관리능력, 자연재해 위험개선지구 정비, 방재 유관기관 네트워크 구축, 재난상황대응</dd>
+        </dl>
+      </li>
+      <li>저감성 지표 data : 지자체별로 지표코드 raw data 값 정리</li>
+      <li>저감성 mapping (표준화) : (저감성지표 data값 – 최소값) / (최대값 – 최소값)</li>
+      <li>저감성 (요인분석지표) : 재난별 저감성 mapping 결과값 평균</li>
+    </ul>
   </div>
-  <div class="info"></div>
 </div>

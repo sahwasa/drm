@@ -26,6 +26,7 @@
     "chartjs-plugin-doughnutlabel": "^2.0.3",
     "jqgrid": "^4.6.4",
     "jquery": "^3.6.0",
-    "jquery-ui": "^1.12.1"
+    "jquery-ui": "^1.12.1",
+    "mathjax": "^3.2.2"
   }
 }

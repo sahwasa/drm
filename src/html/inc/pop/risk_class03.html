@@ -1,46 +1,38 @@
 <div class="section">
   <div class="tbl_top tit_h3">
-    <h3>사회재난 위해성 평가</h3>
+    <h3>사회재난 취약성 평가</h3>
   </div>
-  <div class="tbl_wrap">
-    <table class="tbl_com tbl_factor">
-      <thead>
-        <tr>
-          <th scope="col" >지수</th>
-          <th scope="col">위해성 평가 방법(20년 기준)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>발생건수  =  0</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>0  ＜  발생건수  ≤  1</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>1  ＜  발생건수  ≤  2</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>2  ＜  발생건수  ≤  3</td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td>3 ＜ 발생건수</td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="factor_info">
+    <ul class="info_lst">
+      <li>취약성 지표코드 (36개, SV1~36) 데이터 수집
+        <p class="dtl_info">재난별로 활용되는 지표코드 상이</p>
+        <dl>
+          <dt>ex）취약성화재 : </dt>
+          <dd>노인요양시설수(SV9), 장애인수(SV26), 재난취약인구(SV27), 주거지역면적(SV30), 사업지역면적(sv16), 창고 및 운송업체 관련 서비스 업체수(sv31)</dd>
+        </dl>
+      </li>
+      <li>취약성 지표 data : 지자체별로 지표코드 raw data 값 정리</li>
+      <li>취약성 mapping (표준화) : (취약성지표 data값 – 최소값) / (최대값 – 최소값)</li>
+      <li>취약성 (요인분석지표) : 재난별 취약성 mapping 결과값 평균</li>
+    </ul>
   </div>
-  <div class="info"></div>
 </div>
 <div class="section">
   <div class="tbl_top tit_h3">
-    <h3>자연재난 위해성 평가</h3>
+    <h3>자연재난 취약성 평가</h3>
   </div>
-  <div class="tbl_wrap">
+  <div class="factor_info">
+    <ul class="info_lst">
+      <li>취약성 지표명 (17개) 데이터 수집
+        <p class="dtl_info">재난별로 활용되는 지표명 상이</p>
+        <dl>
+          <dt>ex）취약성 태풍/호우/강풍 : </dt>
+          <dd>인구밀도, 주거지역면적, 도시지역비율, 불투수율면적비율, 도로면적, (반)지하가구수, 장애인수, 기초수급자수, 재난취약인구수, 제조업업체수, 상업지역면적, 공업지역면적</dd>
+        </dl>
+      </li>
+      <li>취약성 지표 data : 지자체별로 지표코드 raw data 값 정리</li>
+      <li>취약성 mapping (표준화) : (취약성지표 data값 – 최소값) / (최대값 – 최소값)</li>
+      <li>취약성 (요인분석지표) : 재난별 취약성 mapping 결과값 평균</li>
+    </ul>
   </div>
-  <div class="info"></div>
 </div>
